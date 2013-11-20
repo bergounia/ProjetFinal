@@ -20,14 +20,17 @@ public class GestionBoutique {
     
     public static void sauvegarderXML(Boutique boutique){
         
-        GestionCommandes.sauvegarderXML(boutique);
         GestionProduits.sauvegarderXML(boutique);
+        GestionCommandes.sauvegarderXML(boutique);
+        
 
         
     }
     
-    public void chargerXML(){
+    public static void chargerXML(Boutique boutique){
         
+        GestionProduits.chargerXML(boutique);
+        GestionCommandes.chargerXML(boutique);
     }
 
     

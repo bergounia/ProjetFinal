@@ -10,7 +10,7 @@ package boutique;
  *
  * @author Benjamin
  */
-public class Produit {
+public class Produit implements Cloneable{
     
     private String nom;
     private String id;
@@ -22,6 +22,12 @@ public class Produit {
         this.nom = nom;
         this.prix = prix;
         this.id=Integer.toString(incr);
+    }
+
+    public Produit(String nom, String id, long prix) {
+        this.nom = nom;
+        this.id = id;
+        this.prix = prix;
     }
 
     public String getNom() {

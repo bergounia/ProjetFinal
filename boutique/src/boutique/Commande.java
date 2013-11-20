@@ -13,7 +13,7 @@ import java.util.Date;
  *
  * @author Benjamin
  */
-public class Commande {
+public class Commande implements Cloneable{
     
     private String id;
     private static int incr;

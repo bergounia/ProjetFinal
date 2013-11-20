@@ -16,9 +16,10 @@ import java.util.Date;
 public class RunUneBoutique {
     
     private Boutique maBoutique;
+    private Boutique ParserBoutique;
     
       public static void main(String[] args) {
-        Produit P1 = new Produit("1", 10);
+        /*Produit P1 = new Produit("1", 10);
         Produit P2 = new Produit("2", 10);
         Produit P3 = new Produit("3", 10);
         Produit P4 = new Produit("4", 10);
@@ -40,8 +41,9 @@ public class RunUneBoutique {
         C2.ajouterProduit(P4);
         C2.ajouterProduit(P3);
         
-        Boutique boutique=new Boutique("bridePD");
-        
+        Boutique boutique=new Boutique("bridePD");*/
+        Boutique bout=new Boutique("bridePD");
+        /*
         boutique.ajouterCommande(C1);
         boutique.ajouterCommande(C2);
         boutique.ajouterCommande(C3);
@@ -53,7 +55,11 @@ public class RunUneBoutique {
         boutique.ajouterProduit(P5);
         
         
-        GestionBoutique.sauvegarderXML(boutique);
+        GestionBoutique.sauvegarderXML(boutique);*/
+        GestionBoutique.chargerXML(bout);
+        
+        bout.ajouterProduit(new Produit("toto",15));
+        System.out.println(bout.getId());
     }
     
     

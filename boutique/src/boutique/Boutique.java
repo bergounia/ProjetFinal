@@ -7,6 +7,7 @@
 package boutique;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 /*caractérisées par leur nom, l'adresse IP, le port pour la gestion des commandes et le port pour la gestion des produits*/
@@ -15,11 +16,13 @@ import java.util.ArrayList;
  *
  * @author Benjamin
  */
-public class Boutique {
+public class Boutique implements Cloneable{
     
     private String nom;
     private String id;
     private static int incr;
+    private int incrProduits;
+    private int incrCommandes;
     private ArrayList<Produit> listeProduits=new ArrayList<Produit>();
     private ArrayList<Commande> listeCommandes=new ArrayList<Commande>();
 
@@ -77,5 +80,39 @@ public class Boutique {
      public void ajouterCommande(Commande cmd){
         this.listeCommandes.add(cmd);
     }
+
+    public int getIncrProduits() {
+        return incrProduits;
+    }
+
+    public int getIncrCommandes() {
+        return incrCommandes;
+    }
+
+    public void setIncrProduits(int incrProduits) {
+        this.incrProduits = incrProduits;
+    }
+
+    public void setIncrCommandes(int incrCommandes) {
+        this.incrCommandes = incrCommandes;
+    }
+
+    public void setListeCommandes(ArrayList<Commande> listeCommandes) {
+        this.listeCommandes = listeCommandes;
+    }
+     
+     public Produit rechercherProduit(String id){
+         
+         Iterator prdt = this.listeProduits.iterator();
+            
+            while(prdt.hasNext()){
+                
+                Produit o = (Produit) prdt.next();
+                
+                if(id.equals(o.getId()))
+                    return o;    
+            }
+        return null;
+     }
 
 }

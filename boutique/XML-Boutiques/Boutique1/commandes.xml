@@ -3,7 +3,7 @@
   <incr>3</incr>
   <commande>
     <id>1</id>
-    <date>Tue Apr 29 00:00:00 CEST 3913</date>
+    <date>61325330400000</date>
     <produits>
       <produit>
         <id>1</id>
@@ -18,7 +18,7 @@
   </commande>
   <commande>
     <id>2</id>
-    <date>Mon Apr 29 00:00:00 CEST 3912</date>
+    <date>61293794400000</date>
     <produits>
       <produit>
         <id>2</id>
@@ -42,7 +42,7 @@
   </commande>
   <commande>
     <id>3</id>
-    <date>Sat Apr 29 00:00:00 CEST 3911</date>
+    <date>61262172000000</date>
     <produits />
   </commande>
 </commandes>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commandes>
+  <commande>
+    <id>1</id>
+    <date>Tue Apr 29 00:00:00 CEST 3913</date>
+    <produits>
+      <produit>
+        <id>1</id>
+      </produit>
+      <produit>
+        <id>2</id>
+      </produit>
+      <produit>
+        <id>5</id>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>2</id>
+    <date>Mon Apr 29 00:00:00 CEST 3912</date>
+    <produits>
+      <produit>
+        <id>2</id>
+      </produit>
+      <produit>
+        <id>4</id>
+      </produit>
+      <produit>
+        <id>5</id>
+      </produit>
+      <produit>
+        <id>1</id>
+      </produit>
+      <produit>
+        <id>4</id>
+      </produit>
+      <produit>
+        <id>3</id>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>3</id>
+    <date>Sat Apr 29 00:00:00 CEST 3911</date>
+    <produits />
+  </commande>
+</commandes>

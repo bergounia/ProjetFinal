@@ -31,7 +31,7 @@ public class GestionProduits {
         //on ajoute l'élément incr à l'élément produits
         Element incr= new Element("incr");
         racine.addContent(incr);
-        incr.setText(String.valueOf(Produit.getIncr()));
+        //incr.setText(String.valueOf(Produit.getIncr()));
         
         //parcourt des commandes de la boutique passée en paramétre
         for(Produit pdrt:boutique.getListeProduits()){

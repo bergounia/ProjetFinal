@@ -16,34 +16,27 @@ import java.util.Date;
 public class Commande implements Cloneable{
     
     private String id;
-    private static int incr;
     private Date dateCmd;
     private ArrayList<Produit> listeProduits = new ArrayList<Produit>();
 
     public Commande(Date dateCmd, ArrayList<Produit> listeProduits) {
-        this.incr++;
         this.dateCmd = dateCmd;
         this.listeProduits = listeProduits;
-        this.id=Integer.toString(incr);
+        this.id="0";
     }
     
-        public Commande(Date dateCmd) {
-        this.incr++;
+    public Commande(Date dateCmd) {
         this.dateCmd = dateCmd;
         this.listeProduits = listeProduits;
-        this.id=Integer.toString(incr);
-    }
-    
-     public static int getIncr() {
-        return incr;
+        this.id="0";
     }
     
     public void setListeProduits(ArrayList<Produit> listeProduits) {
         this.listeProduits = listeProduits;
     }
-    
-    public static void setIncr(int incr) {
-        Commande.incr = incr;
+
+    public void setId(String id) {
+        this.id = id;
     }
    
     public String getId() {
@@ -58,7 +51,18 @@ public class Commande implements Cloneable{
         return listeProduits;
     }
     
-    public void ajouterProduit(Produit prdt){
-        this.listeProduits.add(prdt);
+    //cette méthide permet de dupliquer un produit de la boutique dans la liste des produits d'une commande. on créer ici une nouvelle instance de produit.
+    public void ajouterProduit(Produit prdt) throws CloneNotSupportedException{
+        this.listeProduits.add((Produit)super.clone());
     }
+    /*
+    public int maxIncrProduits(){
+        int res=0;
+        
+        for(Produit p:this.listeProduits){
+            if(Integer.parseInt(p.getId())>res)
+                res=Integer.parseInt(p.getId());                   
+        }
+        return res;
+    } */
 }

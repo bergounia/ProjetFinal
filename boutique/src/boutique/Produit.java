@@ -14,14 +14,12 @@ public class Produit implements Cloneable{
     
     private String nom;
     private String id;
-    private static int incr;
     private long prix;
 
     public Produit(String nom, long prix) {
-        this.incr++;
         this.nom = nom;
         this.prix = prix;
-        this.id=Integer.toString(incr);
+        this.id="0";
     }
 
     public Produit(String nom, String id, long prix) {
@@ -29,6 +27,12 @@ public class Produit implements Cloneable{
         this.id = id;
         this.prix = prix;
     }
+    
+     public Produit(Produit prdt) {
+        this.nom = new String(prdt.getNom());
+        this.id = new String(prdt.getId());
+        this.prix=new Long(prdt.getPrix());
+     }
 
     public String getNom() {
         return nom;
@@ -41,10 +45,6 @@ public class Produit implements Cloneable{
     public long getPrix() {
         return prix;
     }
-    
-     public static int getIncr() {
-        return incr;
-    }
 
     public void setNom(String nom) {
         this.nom = nom;
@@ -53,10 +53,8 @@ public class Produit implements Cloneable{
     public void setPrix(long prix) {
         this.prix = prix;
     }
-    
-    public static void setIncr(int incr) {
-        Produit.incr = incr;
-    }
-    
-    
+
+    public void setId(String id) {
+        this.id = id;
+    }    
 }

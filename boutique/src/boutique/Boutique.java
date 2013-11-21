@@ -16,6 +16,8 @@ import java.util.Iterator;
  *
  * @author Benjamin
  */
+
+//l'increment des commandes et produit est direcetment géré par les methodes ajouter.
 public class Boutique implements Cloneable{
     
     private String nom;
@@ -74,10 +76,14 @@ public class Boutique implements Cloneable{
     }
     
     public void ajouterProduit(Produit prdt){
+        if(Integer.parseInt(prdt.getId())==0)
+            prdt.setId(String.valueOf(this.maxIncrProduits()+1));
         this.listeProduits.add(prdt);
     }
     
      public void ajouterCommande(Commande cmd){
+        if(Integer.parseInt(cmd.getId())==0)
+            cmd.setId(String.valueOf(this.maxIncrCommandes()+1));
         this.listeCommandes.add(cmd);
     }
 
@@ -115,4 +121,23 @@ public class Boutique implements Cloneable{
         return null;
      }
 
+    public int maxIncrProduits(){
+        int res=0;
+
+        for(Produit p:this.listeProduits){
+            if(Integer.parseInt(p.getId())>res)
+                res=Integer.parseInt(p.getId());                   
+        }
+        return res;
+    } 
+         
+    public int maxIncrCommandes(){
+        int res=0;
+        
+        for(Commande cmd:this.listeCommandes){
+            if(Integer.parseInt(cmd.getId())>res)
+                res=Integer.parseInt(cmd.getId());                   
+        }
+        return res;
+    } 
 }

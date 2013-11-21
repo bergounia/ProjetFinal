@@ -36,7 +36,7 @@ public class GestionCommandes {
         //on ajoute l'élément incr à l'élément commandes
         Element incr= new Element("incr");
         racine.addContent(incr);
-        incr.setText(String.valueOf(Commande.getIncr()));
+//        incr.setText(String.valueOf(Commande.getIncr()));
         
         //parcourt des commandes de la boutique passée en paramétre
         for(Commande cmd:boutique.getListeCommandes()){
@@ -82,7 +82,7 @@ public class GestionCommandes {
         ParserXML(boutique.getId());
         
         //On commence par mettre à jour l'incrément des commandes
-        Commande.setIncr(Integer.parseInt(racine.getChild("incr").getText()));
+       // Commande.setIncr(Integer.parseInt(racine.getChild("incr").getText()));
         
         //On créer une liste des Element Jdom de type commande
         List commandes = racine.getChildren("commande");

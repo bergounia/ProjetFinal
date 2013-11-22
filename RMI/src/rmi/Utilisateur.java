@@ -14,24 +14,26 @@ public class Utilisateur {
     private String nom;
     private String prenom;
     private String motDePasse;
-    private String groupe;
+    private int groupe;
   
     public Utilisateur()
     {
-        this.incr++;
+        Utilisateur.incr++;
         this.nom="";
         this.prenom="";
         this.motDePasse="";
         this.identifiant= String.valueOf(this.incr);
+        this.groupe=1;
     }
     
-    public Utilisateur(String n, String p, String mdp, String g)
+    public Utilisateur(String n, String p, String mdp, int g)
     {
-        this.incr++;
+        Utilisateur.incr++;
         this.nom= n;
         this.prenom= p;
         this.motDePasse= encode(mdp);
         this.identifiant= this.nom.substring(0, 4)+ this.prenom.substring(0, 4)+ this.incr;
+        this. groupe= g;
     }
 
     public String getIdentifiant() {
@@ -50,7 +52,7 @@ public class Utilisateur {
         return motDePasse;
     }
 
-    public String getGroupe() {
+    public int getGroupe() {
         return groupe;
     }
 
@@ -66,7 +68,7 @@ public class Utilisateur {
         this.prenom = prenom;
     }
 
-    public void setGroupe(String groupe) {
+    public void setGroupe(int groupe) {
         this.groupe = groupe;
     }
     

@@ -5,6 +5,7 @@
         <group>
             <file>file:/D:/Documents/GitHub/ProjetFinal/RMI/src/rmi/GestionBoutiques.java</file>
             <file>file:/D:/Documents/GitHub/ProjetFinal/RMI/src/rmi/ServeurRMI.java</file>
+            <file>file:/D:/Documents/GitHub/ProjetFinal/RMI/src/rmi/ClientRMI.java</file>
             <file>file:/D:/Documents/GitHub/ProjetFinal/RMI/src/rmi/Utilisateur.java</file>
             <file>file:/D:/Documents/GitHub/ProjetFinal/RMI/src/rmi/IGestionBoutiques.java</file>
             <file>file:/D:/Documents/GitHub/ProjetFinal/RMI/src/rmi/IGestionUtilisateurs.java</file>

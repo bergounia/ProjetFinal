@@ -97,7 +97,7 @@ public class GestionUtilisateurs extends UnicastRemoteObject implements IGestion
 
             Element groupe= new Element("groupe");
             utilisateur.addContent(groupe);
-            groupe.setText(u.getGroupe());
+            groupe.setText(String.valueOf(u.getGroupe()));
         }
         
         //Enregistrement dans le fichier

@@ -7,7 +7,6 @@
 package gestion;
 
 import boutique.Boutique;
-import static gestion.GestionCommandes.document;
 import java.io.File;
 import java.io.FileOutputStream;
 import org.jdom2.output.Format;
@@ -22,14 +21,10 @@ public class GestionBoutique {
     public static void sauvegarderXML(Boutique boutique){
         
         GestionProduits.sauvegarderXML(boutique);
-        GestionCommandes.sauvegarderXML(boutique);
-        
-
-        
+        GestionCommandes.sauvegarderXML(boutique); 
     }
     
     public static void chargerXML(Boutique boutique){
-        
         GestionProduits.chargerXML(boutique);
         GestionCommandes.chargerXML(boutique);
     }

@@ -6,9 +6,14 @@
 
 package boutique;
 
+import gestion.GestionBoutique;
+import gestion.GestionProduits;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import thread.ServeurThreadProduits;
+import thread.XMLThread;
 
 
 /*caractérisées par leur nom, l'adresse IP, le port pour la gestion des commandes et le port pour la gestion des produits*/
@@ -29,18 +34,28 @@ public class Boutique implements Cloneable{
     private ArrayList<Produit> listeProduits=new ArrayList<Produit>();
     private ArrayList<Commande> listeCommandes=new ArrayList<Commande>();
     private ServeurThreadProduits threadServeurProduit;
+    private XMLThread threadSauvegarde;
 
-    public Boutique(String nom, ArrayList<Produit> listeProduits) {
+    public Boutique(String nom, ArrayList<Produit> listeProduits){
         this.incr++;
+        
         this.nom = nom;
         this.listeProduits = listeProduits;
         this.id=Integer.toString(incr);
+        GestionBoutique.chargerXML(this);
+        try {        
+            this.runSauvegardeXML();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Boutique.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
-    public Boutique(String nom) {
+    public Boutique(String nom) throws InterruptedException {
         this.incr++;
         this.nom = nom;
         this.id=Integer.toString(incr);
+        GestionBoutique.chargerXML(this);
+        this.runSauvegardeXML();
     }
 
     public String getNom() {
@@ -149,5 +164,10 @@ public class Boutique implements Cloneable{
         t.start();
     }
     
+        public void runSauvegardeXML() throws InterruptedException{
+        this.threadSauvegarde=new XMLThread(this);
+        Thread t = new Thread(this.threadSauvegarde);
+        t.start();
+    }
 }
 

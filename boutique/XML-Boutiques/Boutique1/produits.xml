@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <produits>
-  <incr>5</incr>
+  <incr />
   <produit>
     <id>1</id>
     <nom>1</nom>
@@ -25,5 +25,15 @@
     <id>5</id>
     <nom>5</nom>
     <prix>10</prix>
+  </produit>
+  <produit>
+    <id>6</id>
+    <nom>Bride</nom>
+    <prix>9999999</prix>
+  </produit>
+  <produit>
+    <id>7</id>
+    <nom>Bride</nom>
+    <prix>9999999</prix>
   </produit>
 </produits>

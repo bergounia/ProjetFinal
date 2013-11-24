@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <commandes>
-  <incr>3</incr>
+  <incr />
   <commande>
     <id>1</id>
     <date>61325330400000</date>
@@ -12,7 +12,7 @@
         <id>2</id>
       </produit>
       <produit>
-        <id>5</id>
+        <id>3</id>
       </produit>
     </produits>
   </commande>
@@ -21,19 +21,10 @@
     <date>61293794400000</date>
     <produits>
       <produit>
-        <id>2</id>
-      </produit>
-      <produit>
-        <id>4</id>
-      </produit>
-      <produit>
-        <id>5</id>
-      </produit>
-      <produit>
         <id>1</id>
       </produit>
       <produit>
-        <id>4</id>
+        <id>2</id>
       </produit>
       <produit>
         <id>3</id>
@@ -43,6 +34,16 @@
   <commande>
     <id>3</id>
     <date>61262172000000</date>
-    <produits />
+    <produits>
+      <produit>
+        <id>1</id>
+      </produit>
+      <produit>
+        <id>2</id>
+      </produit>
+      <produit>
+        <id>3</id>
+      </produit>
+    </produits>
   </commande>
 </commandes>

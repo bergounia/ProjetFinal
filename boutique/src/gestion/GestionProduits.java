@@ -8,7 +8,6 @@ package gestion;
 
 import boutique.Boutique;
 import boutique.Produit;
-import static gestion.GestionCommandes.document;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Iterator;
@@ -25,11 +24,16 @@ import org.jdom2.output.XMLOutputter;
  */
 public class GestionProduits {
     
-   private static Element racine= new Element("produits");
-   public static org.jdom2.Document document = new Document(racine);
+   private static Element racine;
+   private static org.jdom2.Document document;
+   
+   public static void reset(){
+       GestionProduits.racine= new Element("produits");
+       GestionProduits.document = new Document(racine);
+   }
         
     public static void sauvegarderXML(Boutique boutique){
-        
+        reset();
         //on ajoute l'élément incr à l'élément produits
         Element incr= new Element("incr");
         racine.addContent(incr);
@@ -67,7 +71,7 @@ public class GestionProduits {
         Element racine2=ParserXML(boutique.getId());
         
         //On commence par mettre à jour l'incrément des commandes
-        boutique.setIncrProduits(Integer.parseInt(racine2.getChild("incr").getText()));
+       // boutique.setIncrProduits(Integer.parseInt(racine2.getChild("incr").getText()));
 
         //On créer une liste des Element Jdom de type produit
         List produits = racine2.getChildren("produit");

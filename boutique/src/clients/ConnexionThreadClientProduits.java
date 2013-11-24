@@ -84,9 +84,7 @@ private static int port = 5005;
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-
-     
+			}     
         }
 	
 	static void affiche(org.jdom2.Document document){

@@ -30,12 +30,17 @@ import org.jdom2.output.XMLOutputter;
 public class GestionCommandes {
     
     //mise à disposition du document et de l'élément racine
-    private static Element racine= new Element("commandes");
-    public static org.jdom2.Document document = new Document(racine);
+       private static Element racine;
+       private static org.jdom2.Document document;
+   
+   public static void reset(){
+       GestionCommandes.racine= new Element("commandes");
+       GestionCommandes.document = new Document(racine);
+   }
     
     
     public static void sauvegarderXML(Boutique boutique){
-        
+        reset();
         //on ajoute l'élément incr à l'élément commandes
         Element incr= new Element("incr");
         racine.addContent(incr);

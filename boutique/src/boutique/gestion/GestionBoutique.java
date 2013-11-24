@@ -4,9 +4,10 @@
  * and open the template in the editor.
  */
 
-package boutique;
+package boutique.gestion;
 
-import static boutique.GestionCommandes.document;
+import boutique.Boutique;
+import static boutique.gestion.GestionCommandes.document;
 import java.io.File;
 import java.io.FileOutputStream;
 import org.jdom2.output.Format;

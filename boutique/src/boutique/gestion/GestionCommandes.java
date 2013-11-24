@@ -4,8 +4,11 @@
  * and open the template in the editor.
  */
 
-package boutique;
+package boutique.gestion;
 
+import boutique.Boutique;
+import boutique.Commande;
+import boutique.Produit;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;

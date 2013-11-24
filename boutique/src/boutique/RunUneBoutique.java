@@ -6,6 +6,7 @@
 
 package boutique;
 
+import boutique.gestion.GestionBoutique;
 import java.util.ArrayList;
 import java.util.Date;
 

@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 
-package boutique.gestion;
+package gestion;
 
 import boutique.Boutique;
 import boutique.Produit;
-import static boutique.gestion.GestionCommandes.document;
+import static gestion.GestionCommandes.document;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Iterator;

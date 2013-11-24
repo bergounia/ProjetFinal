@@ -17,12 +17,14 @@ public class Commande implements Cloneable{
     
     private String id;
     private Date dateCmd;
+    private boolean validation;
     private ArrayList<Produit> listeProduits = new ArrayList<Produit>();
 
     public Commande(Date dateCmd, ArrayList<Produit> listeProduits) {
         this.dateCmd = dateCmd;
         this.listeProduits = listeProduits;
         this.id="0";
+        this.validation=false;
     }
     
     public Commande(Date dateCmd) {
@@ -51,9 +53,12 @@ public class Commande implements Cloneable{
         return listeProduits;
     }
     
+    public void validerCommande(){
+        this.validation=true;
+    }    
     //cette méthide permet de dupliquer un produit de la boutique dans la liste des produits d'une commande. on créer ici une nouvelle instance de produit.
     public void ajouterProduit(Produit prdt) throws CloneNotSupportedException{
-        this.listeProduits.add((Produit)super.clone());
+        //this.listeProduits.add((Produit)prdt.clone());
     }
     /*
     public int maxIncrProduits(){

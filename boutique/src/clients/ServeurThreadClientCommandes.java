@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-package boutique.thread;
+package clients;
 
 /**
  *
  * @author Benjamin
  */
-public class XMLThread extends Thread{
+public class ServeurThreadClientCommandes {
     
 }

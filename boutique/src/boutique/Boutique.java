@@ -8,6 +8,7 @@ package boutique;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import thread.ServeurThreadProduits;
 
 
 /*caractérisées par leur nom, l'adresse IP, le port pour la gestion des commandes et le port pour la gestion des produits*/
@@ -27,6 +28,7 @@ public class Boutique implements Cloneable{
     private int incrCommandes;
     private ArrayList<Produit> listeProduits=new ArrayList<Produit>();
     private ArrayList<Commande> listeCommandes=new ArrayList<Commande>();
+    private ServeurThreadProduits threadServeurProduit;
 
     public Boutique(String nom, ArrayList<Produit> listeProduits) {
         this.incr++;
@@ -139,5 +141,13 @@ public class Boutique implements Cloneable{
                 res=Integer.parseInt(cmd.getId());                   
         }
         return res;
-    } 
+    }
+    
+    public void runServeurProduits(int port){
+        this.threadServeurProduit=new ServeurThreadProduits(port,this);
+        Thread t = new Thread(this.threadServeurProduit);
+        t.start();
+    }
+    
 }
+

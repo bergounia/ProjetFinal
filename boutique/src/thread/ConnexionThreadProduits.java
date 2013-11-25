@@ -7,7 +7,6 @@
 package thread;
 
 import boutique.Boutique;
-import boutique.Personne;
 import boutique.Produit;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -19,14 +19,13 @@ public class RunUneBoutique {
         
       public static void main(String[] args) throws CloneNotSupportedException, InterruptedException{
         
-        Boutique boutique=new Boutique("Carrefour");
-
+        Boutique boutique1=new Boutique("Carrefour");
         //GestionBoutique.sauvegarderXML(boutique);
        //GestionBoutique.chargerXML(bout);
         
         //bout.ajouterProduit(new Produit("toto",15));
         //System.out.println(bout.getId()); 
-        boutique.runServeurProduits(5005);
-        
+        boutique1.runServeurProduits(5005);
+        boutique1.runServeurCommandes(5006);
     }   
 }

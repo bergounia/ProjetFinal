@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import thread.ServeurThreadCommandes;
 import thread.ServeurThreadProduits;
+import thread.ThreadGenID;
 import thread.XMLThread;
 
 
@@ -34,7 +36,10 @@ public class Boutique implements Cloneable{
     private ArrayList<Produit> listeProduits=new ArrayList<Produit>();
     private ArrayList<Commande> listeCommandes=new ArrayList<Commande>();
     private ServeurThreadProduits threadServeurProduit;
+    private ServeurThreadCommandes threadServeurCommandes;
     private XMLThread threadSauvegarde;
+    private int IDgen;
+    private ThreadGenID genID;
 
     public Boutique(String nom, ArrayList<Produit> listeProduits){
         this.incr++;
@@ -56,6 +61,7 @@ public class Boutique implements Cloneable{
         this.id=Integer.toString(incr);
         GestionBoutique.chargerXML(this);
         this.runSauvegardeXML();
+        this.runGenID();
     }
 
     public String getNom() {
@@ -123,6 +129,14 @@ public class Boutique implements Cloneable{
     public void setListeCommandes(ArrayList<Commande> listeCommandes) {
         this.listeCommandes = listeCommandes;
     }
+
+    public int getIDgen() {
+        return IDgen;
+    }
+
+    public void setIDgen(int IDgen) {
+        this.IDgen = IDgen;
+    }
      
      public Produit rechercherProduit(String id){
          
@@ -131,6 +145,20 @@ public class Boutique implements Cloneable{
             while(prdt.hasNext()){
                 
                 Produit o = (Produit) prdt.next();
+                
+                if(id.equals(o.getId()))
+                    return o;    
+            }
+        return null;
+     }
+     
+          public Commande rechercherCommande(String id){
+         
+         Iterator cmd = this.listeCommandes.iterator();
+            
+            while(cmd.hasNext()){
+                
+                Commande o = (Commande) cmd.next();
                 
                 if(id.equals(o.getId()))
                     return o;    
@@ -164,10 +192,22 @@ public class Boutique implements Cloneable{
         t.start();
     }
     
-        public void runSauvegardeXML() throws InterruptedException{
+    public void runServeurCommandes(int port){
+        this.threadServeurCommandes=new ServeurThreadCommandes(port,this);
+        Thread t = new Thread(this.threadServeurCommandes);
+        t.start();
+    }
+    
+    public void runSauvegardeXML() throws InterruptedException{
         this.threadSauvegarde=new XMLThread(this);
         Thread t = new Thread(this.threadSauvegarde);
         t.start();
     }
+    
+    public void runGenID() throws InterruptedException{
+        this.genID=new ThreadGenID(this);
+        Thread t = new Thread((Runnable) this.genID);
+        t.start();
+    }     
 }
 

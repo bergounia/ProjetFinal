@@ -25,18 +25,18 @@ private static int port = 5005;
 	
 	public static void ajouterProduit(String address, int port, String nomProduit, long prix){
 		
-		Element racine= new Element("produit");
-		org.jdom2.Document doc = new Document(racine);
+            Element racine= new Element("produit");
+            org.jdom2.Document doc = new Document(racine);
 		
-		Element nom= new Element("nom");
-        racine.addContent(nom);
-        nom.setText(nomProduit);
+            Element nom= new Element("nom");
+            racine.addContent(nom);
+            nom.setText(nomProduit);
         
-        Element prixp= new Element("prix");
-        racine.addContent(prixp);
-        prixp.setText(String.valueOf(prix));
+            Element prixp= new Element("prix");
+            racine.addContent(prixp);
+            prixp.setText(String.valueOf(prix));
         
-        racine.setAttribute(new Attribute("action","ajoutProduit"));
+            racine.setAttribute(new Attribute("action","ajoutProduit"));
 		
         try{
     		Socket s = new Socket(address,port);
@@ -58,7 +58,7 @@ private static int port = 5005;
 		org.jdom2.Document doc = new Document(racine);
 		Socket s = new Socket(address,port);
         
-        racine.setAttribute(new Attribute("action","recevoirProduits"));
+                racine.setAttribute(new Attribute("action","recevoirProduits"));
 		
         //envoyer la demande
         try{

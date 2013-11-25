@@ -12,16 +12,13 @@
         <id>2</id>
       </produit>
       <produit>
+        <id>2</id>
+      </produit>
+      <produit>
         <id>3</id>
       </produit>
       <produit>
-        <id>4</id>
-      </produit>
-      <produit>
-        <id>5</id>
-      </produit>
-      <produit>
-        <id>6</id>
+        <id>3</id>
       </produit>
     </produits>
   </commande>
@@ -36,21 +33,39 @@
         <id>2</id>
       </produit>
       <produit>
+        <id>2</id>
+      </produit>
+      <produit>
         <id>3</id>
       </produit>
       <produit>
-        <id>4</id>
-      </produit>
-      <produit>
-        <id>5</id>
-      </produit>
-      <produit>
-        <id>6</id>
+        <id>3</id>
       </produit>
     </produits>
   </commande>
   <commande>
     <id>3</id>
+    <date>61293794400000</date>
+    <produits>
+      <produit>
+        <id>1</id>
+      </produit>
+      <produit>
+        <id>2</id>
+      </produit>
+      <produit>
+        <id>2</id>
+      </produit>
+      <produit>
+        <id>3</id>
+      </produit>
+      <produit>
+        <id>3</id>
+      </produit>
+    </produits>
+  </commande>
+  <commande>
+    <id>4</id>
     <date>61262172000000</date>
     <produits>
       <produit>
@@ -60,100 +75,31 @@
         <id>2</id>
       </produit>
       <produit>
-        <id>3</id>
-      </produit>
-      <produit>
-        <id>4</id>
-      </produit>
-      <produit>
-        <id>5</id>
-      </produit>
-      <produit>
-        <id>6</id>
-      </produit>
-    </produits>
-  </commande>
-  <commande>
-    <id>4</id>
-    <date>1385378001795</date>
-    <produits>
-      <produit>
-        <id>1</id>
-      </produit>
-      <produit>
         <id>2</id>
       </produit>
       <produit>
         <id>3</id>
       </produit>
       <produit>
-        <id>4</id>
-      </produit>
-      <produit>
-        <id>5</id>
-      </produit>
-      <produit>
-        <id>6</id>
+        <id>3</id>
       </produit>
     </produits>
   </commande>
   <commande>
     <id>5</id>
-    <date>1385378093124</date>
+    <date>61262172000000</date>
     <produits>
       <produit>
         <id>1</id>
+      </produit>
+      <produit>
+        <id>2</id>
       </produit>
       <produit>
         <id>2</id>
       </produit>
       <produit>
         <id>3</id>
-      </produit>
-      <produit>
-        <id>4</id>
-      </produit>
-      <produit>
-        <id>5</id>
-      </produit>
-      <produit>
-        <id>6</id>
-      </produit>
-    </produits>
-  </commande>
-  <commande>
-    <id>6</id>
-    <date>1385378273524</date>
-    <produits>
-      <produit>
-        <id>1</id>
-      </produit>
-      <produit>
-        <id>2</id>
-      </produit>
-      <produit>
-        <id>3</id>
-      </produit>
-      <produit>
-        <id>4</id>
-      </produit>
-      <produit>
-        <id>5</id>
-      </produit>
-      <produit>
-        <id>6</id>
-      </produit>
-    </produits>
-  </commande>
-  <commande>
-    <id>7</id>
-    <date>1385378603085</date>
-    <produits>
-      <produit>
-        <id>1</id>
-      </produit>
-      <produit>
-        <id>2</id>
       </produit>
       <produit>
         <id>3</id>

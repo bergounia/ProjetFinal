@@ -55,7 +55,18 @@ public class Commande implements Cloneable{
     
     public void validerCommande(){
         this.validation=true;
-    }    
+    }
+    
+    public Object clone() throws CloneNotSupportedException {  
+        Commande copy = (Commande) super.clone();
+        
+        if (copy.listeProduits != null)  
+                copy.listeProduits = (ArrayList<Produit>) copy.listeProduits.clone();  
+
+        return copy;  
+    }  
+
+    
     //cette méthide permet de dupliquer un produit de la boutique dans la liste des produits d'une commande. on créer ici une nouvelle instance de produit.
     public void ajouterProduit(Produit prdt) throws CloneNotSupportedException{
         //this.listeProduits.add((Produit)prdt.clone());

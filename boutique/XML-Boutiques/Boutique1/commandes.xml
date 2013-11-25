@@ -3,6 +3,7 @@
   <incr />
   <commande>
     <id>1</id>
+    <valide>true</valide>
     <date>61325330400000</date>
     <produits>
       <produit>
@@ -23,10 +24,14 @@
       <produit>
         <id>6</id>
       </produit>
+      <produit>
+        <id>7</id>
+      </produit>
     </produits>
   </commande>
   <commande>
     <id>2</id>
+    <valide>false</valide>
     <date>61293794400000</date>
     <produits>
       <produit>
@@ -47,10 +52,14 @@
       <produit>
         <id>6</id>
       </produit>
+      <produit>
+        <id>7</id>
+      </produit>
     </produits>
   </commande>
   <commande>
     <id>3</id>
+    <valide>true</valide>
     <date>61262172000000</date>
     <produits>
       <produit>
@@ -71,10 +80,14 @@
       <produit>
         <id>6</id>
       </produit>
+      <produit>
+        <id>7</id>
+      </produit>
     </produits>
   </commande>
   <commande>
     <id>4</id>
+    <valide>false</valide>
     <date>1385378001795</date>
     <produits>
       <produit>
@@ -95,10 +108,14 @@
       <produit>
         <id>6</id>
       </produit>
+      <produit>
+        <id>7</id>
+      </produit>
     </produits>
   </commande>
   <commande>
     <id>5</id>
+    <valide>false</valide>
     <date>1385378093124</date>
     <produits>
       <produit>
@@ -119,10 +136,14 @@
       <produit>
         <id>6</id>
       </produit>
+      <produit>
+        <id>7</id>
+      </produit>
     </produits>
   </commande>
   <commande>
     <id>6</id>
+    <valide>false</valide>
     <date>1385378273524</date>
     <produits>
       <produit>
@@ -143,10 +164,14 @@
       <produit>
         <id>6</id>
       </produit>
+      <produit>
+        <id>7</id>
+      </produit>
     </produits>
   </commande>
   <commande>
     <id>7</id>
+    <valide>false</valide>
     <date>1385378603085</date>
     <produits>
       <produit>
@@ -157,6 +182,18 @@
       </produit>
       <produit>
         <id>3</id>
+      </produit>
+      <produit>
+        <id>4</id>
+      </produit>
+      <produit>
+        <id>5</id>
+      </produit>
+      <produit>
+        <id>6</id>
+      </produit>
+      <produit>
+        <id>7</id>
       </produit>
     </produits>
   </commande>

@@ -60,7 +60,7 @@ public class ConnexionThreadCommandes extends Thread{
         if(message.getAttributeValue("action").equals("envoyerCommande"))
             passerCommande(message.getChild("commande"));
         if(message.getAttributeValue("action").equals("validerCommande"))
-            validerCommande(message);
+            validerCommande(message.getChild("commande"));
 
         System.out.println(message.getAttributeValue("action"));					
     }
@@ -83,6 +83,6 @@ public class ConnexionThreadCommandes extends Thread{
     }
          
     public static void validerCommande(Element message){
-        
+        bout.rechercherCommande(message.getAttributeValue("id")).validerCommande();
     }
 }

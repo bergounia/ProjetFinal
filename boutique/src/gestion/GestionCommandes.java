@@ -57,6 +57,11 @@ public class GestionCommandes {
             Element id= new Element("id");
             commande.addContent(id);
             id.setText(cmd.getId());
+            
+            //on ajoute l'élément validation à l'élément commande
+            Element valide= new Element("valide");
+            commande.addContent(valide);
+            valide.setText(String.valueOf(cmd.isValidation()));
 
             //on ajoute l'élément date à l'élément commande
             Element date= new Element("date");
@@ -112,8 +117,7 @@ public class GestionCommandes {
                 if(boutique.rechercherProduit(produit.getChild("id").getText())!=null)
                     listeProduits.add(boutique.rechercherProduit(produit.getChild("id").getText()));
             }
-            System.out.println(listeProduits);
-           boutique.ajouterCommande(new Commande(new Date(Long.parseLong(commande.getChild("date").getText())), (ArrayList<Produit>)listeProduits.clone()));            
+           boutique.ajouterCommande(new Commande(new Date(Long.parseLong(commande.getChild("date").getText())), (ArrayList<Produit>)listeProduits.clone(),Boolean.parseBoolean(commande.getChild("valide").getText())));
         }
         
     }

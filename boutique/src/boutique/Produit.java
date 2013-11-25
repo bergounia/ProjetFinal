@@ -57,4 +57,9 @@ public class Produit implements Cloneable{
     public void setId(String id) {
         this.id = id;
     }    
+
+    @Override
+    public String toString() {
+        return "Produit{" + "nom=" + nom + ", id=" + id + ", prix=" + prix + '}';
+    }
 }

@@ -19,8 +19,8 @@ private static int port = 5005;
 
 	public static void main(String args[]) throws ClassNotFoundException, UnknownHostException, IOException{
 		
-		//ajouterProduit(address,port,"toto",21);
-		demanderProduits("192.168.1.12", 5005);
+		ajouterProduit(address,port,"steak",21);
+		//demanderProduits("192.168.1.12", 5005);
 	}
 	
 	public static void ajouterProduit(String address, int port, String nomProduit, long prix){

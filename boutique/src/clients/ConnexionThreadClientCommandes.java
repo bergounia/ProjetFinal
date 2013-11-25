@@ -174,11 +174,12 @@ public class ConnexionThreadClientCommandes extends Thread{
     
     public static void main(String[]args) throws IOException{
         
-        ConnexionThreadClientCommandes.listeIdProduits.add("1");
-        ConnexionThreadClientCommandes.listeIdProduits.add("2");
-        ConnexionThreadClientCommandes.listeIdProduits.add("3");
-        ConnexionThreadClientCommandes.envoyerCommande();
+       //ConnexionThreadClientCommandes.listeIdProduits.add("1");
+       // ConnexionThreadClientCommandes.listeIdProduits.add("2");
+        //ConnexionThreadClientCommandes.listeIdProduits.add("3");
+        //ConnexionThreadClientCommandes.envoyerCommande();
         ConnexionThreadClientCommandes.validerCommande(1);
+        ConnexionThreadClientCommandes.validerCommande(3);
     }
     
 }

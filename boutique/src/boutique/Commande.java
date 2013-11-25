@@ -27,6 +27,13 @@ public class Commande implements Cloneable{
         this.validation=false;
     }
     
+     public Commande(Date dateCmd, ArrayList<Produit> listeProduits, Boolean valide) {
+        this.dateCmd = dateCmd;
+        this.listeProduits = listeProduits;
+        this.id="0";
+        this.validation=valide;
+    }
+    
     public Commande(Date dateCmd) {
         this.dateCmd = dateCmd;
         this.listeProduits = listeProduits;
@@ -55,6 +62,10 @@ public class Commande implements Cloneable{
     
     public void validerCommande(){
         this.validation=true;
+    }
+
+    public boolean isValidation() {
+        return validation;
     }
     
     public Object clone() throws CloneNotSupportedException {  

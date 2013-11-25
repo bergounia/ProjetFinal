@@ -26,12 +26,11 @@ public class XMLThread extends Thread{
     public void run(){
         while(true){
             try {
-                this.sleep(5000);
+                this.sleep(60000);
                 GestionBoutique.sauvegarderXML(bout);
             } catch (InterruptedException ex) {
                 Logger.getLogger(XMLThread.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
-    
 }

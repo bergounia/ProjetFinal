@@ -1,5 +1,6 @@
 package rmi;
 
+import java.io.Serializable;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -7,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
  *
  * @author Aymeric
  */
-public class Utilisateur {
+public class Utilisateur implements Serializable{
 
     private static int incr;
     private String identifiant;
@@ -70,6 +71,20 @@ public class Utilisateur {
 
     public void setGroupe(int groupe) {
         this.groupe = groupe;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return "Utilisateur: "+ this.getNom()+" "+ this.getPrenom()+ "\n";
+    }
+    
+    public boolean equals(Object o)
+    {
+        if(this.identifiant.equals(((Utilisateur)o).getIdentifiant()))
+            return true;
+        else
+            return false;
     }
     
     public static String encode(String password)

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<boutiques>
+  <boutique>
+    <nom>Amazon</nom>
+    <adresseIP>192.68.1.1</adresseIP>
+    <port>3131</port>
+  </boutique>
+  <boutique>
+    <nom>Cdiscount</nom>
+    <adresseIP>192.10.0.2</adresseIP>
+    <port>4141</port>
+  </boutique>
+</boutiques>

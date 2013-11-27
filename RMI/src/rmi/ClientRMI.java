@@ -11,17 +11,17 @@ import java.net.MalformedURLException;
  */
 
 public class ClientRMI {
- 
-    /**
-     * Methode principale.
-     * @param args inutilise
-     */
     public static void main(String[] args) {
-	IGestionUtilisateurs gestion = null;
+	IGestionUtilisateurs gestionUtilisateurs = null;
+        IGestionBoutiques gestionBoutiques= null;
+        
+        //IGestionBoutiques gestionBoutiques= null;
  
 	// Recuperation de la personne distante
 	try {
-	    gestion = (IGestionUtilisateurs)Naming.lookup("rmi://localhost/GestionUtilisateurs");
+	    gestionUtilisateurs = (IGestionUtilisateurs)Naming.lookup("rmi://localhost/GestionUtilisateurs");
+            gestionBoutiques = (IGestionBoutiques)Naming.lookup("rmi://localhost/GestionBoutiques");
+            //gestionBoutiques = (IGestionBoutiques)Naming.lookup("rmi://localhost/GestionBoutiques");
 	} catch(NotBoundException e) {
 	    System.err.println("Pas possible d'acceder à l'objet distant : " + e);
 	    System.exit(-1);
@@ -33,13 +33,33 @@ public class ClientRMI {
 	    System.exit(-1);
 	}
  
-	try {
-            Utilisateur u1= new Utilisateur("BRIDE", "Aymeric", "aymeric", 1);
-            gestion.ajouterUtilisateur(u1);
+        Utilisateur u1= new Utilisateur("BRIDE", "Aymeric", "aymeric", 1);
+        Utilisateur u2= new Utilisateur("KAMINSKI", "Benjamin", "benjamin", 2);
+        
+        Boutique b1= new Boutique("Amazon", "192.68.1.1", 3131);
+        Boutique b2= new Boutique("Cdiscount", "192.10.0.2", 4141);
+        
+        try {
+            //gestionUtilisateurs.ajouterUtilisateur(u1);
+            //gestionUtilisateurs.ajouterUtilisateur(u2);
+            
+            //System.out.println(gestionUtilisateurs.chercherUtilisateur(u1));
+            //gestionUtilisateurs.supprimerUtilisateur(u2);
+            //gestionUtilisateurs.supprimerUtilisateur(u2);
+            
+            //Affiche la liste des utilisateurs créés
+            //gestionUtilisateurs.afficherListeUtilisateurs();
+            
+            
+            //gestionBoutiques.ajouterBoutique(b1);
+            //gestionBoutiques.ajouterBoutique(b2);
+            
+            gestionBoutiques.afficherListeBoutiques();
+            
+            
         } catch(RemoteException e) {
             System.err.println("Erreur lors de l'acces aux methodes : " + e);
             System.exit(-1);
         }
     }
- 
 }

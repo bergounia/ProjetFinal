@@ -14,8 +14,8 @@ import org.jdom2.output.XMLOutputter;
 
 public class ConnexionThreadClientProduits extends Thread{
 	
-private static String address = "192.168.1.12";
-private static int port = 5005;
+private static String address = "localhost";
+private static int port = 5009;
 
 	public static void main(String args[]) throws ClassNotFoundException, UnknownHostException, IOException{
 		

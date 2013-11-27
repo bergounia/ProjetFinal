@@ -35,7 +35,7 @@ public class ServeurThreadProduits extends Thread {
   //** Methode : la première méthode exécutée, elle attend les connections **
   public void run()
   {
-      System.out.println("lancement du serveur");
+      System.out.println("Lancement serveur produits sur "+portEcoute+" pour "+this.boutique.getNom());
       
 	try {	
 	    socketServeur = new ServerSocket(portEcoute);
@@ -46,7 +46,8 @@ public class ServeurThreadProduits extends Thread {
         
         while(true){
           try {
-              Thread t = new Thread(new ConnexionThreadProduits(this.socketServeur,this.boutique));
+              Socket s= this.socketServeur.accept();
+              Thread t = new Thread(new ConnexionThreadProduits(s,this.boutique));
               t.start();
           } catch (IOException ex) {
               Logger.getLogger(ServeurThreadProduits.class.getName()).log(Level.SEVERE, null, ex);

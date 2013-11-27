@@ -3,62 +3,37 @@
   <incr />
   <produit>
     <id>1</id>
-    <nom>viande</nom>
+    <nom>1</nom>
     <prix>10</prix>
   </produit>
   <produit>
     <id>2</id>
-    <nom>chocolat</nom>
+    <nom>2</nom>
     <prix>10</prix>
   </produit>
   <produit>
     <id>3</id>
-    <nom>frommage</nom>
+    <nom>3</nom>
     <prix>10</prix>
   </produit>
   <produit>
     <id>4</id>
-    <nom>yaourt</nom>
+    <nom>4</nom>
     <prix>10</prix>
   </produit>
   <produit>
     <id>5</id>
-    <nom>patate5</nom>
+    <nom>5</nom>
     <prix>10</prix>
   </produit>
   <produit>
     <id>6</id>
-    <nom>cerise</nom>
+    <nom>Bride</nom>
     <prix>9999999</prix>
   </produit>
   <produit>
     <id>7</id>
-    <nom>fraise</nom>
+    <nom>Bride</nom>
     <prix>9999999</prix>
-  </produit>
-  <produit>
-    <id>7</id>
-    <nom>nutella</nom>
-    <prix>9999999</prix>
-  </produit>
-  <produit>
-    <id>7</id>
-    <nom>mi-choco</nom>
-    <prix>9999999</prix>
-  </produit>
-  <produit>
-    <id>7</id>
-    <nom>cordon bleu</nom>
-    <prix>9999999</prix>
-  </produit>
-  <produit>
-    <id>7</id>
-    <nom>langue de boeuf</nom>
-    <prix>9999999</prix>
-  </produit>
-  <produit>
-    <id>8</id>
-    <nom>steak</nom>
-    <prix>21</prix>
   </produit>
 </produits>

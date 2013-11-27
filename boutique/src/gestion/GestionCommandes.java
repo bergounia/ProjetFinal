@@ -41,9 +41,6 @@ public class GestionCommandes {
     
     public static void sauvegarderXML(Boutique boutique){
         reset();
-        //on ajoute l'élément incr à l'élément commandes
-        Element incr= new Element("incr");
-        racine.addContent(incr);
 //        incr.setText(String.valueOf(Commande.getIncr()));
         
         //parcourt des commandes de la boutique passée en paramétre
@@ -92,34 +89,36 @@ public class GestionCommandes {
     }
     
     public static void chargerXML(Boutique boutique){
-        ParserXML(boutique.getId());
-        
-        //On commence par mettre à jour l'incrément des commandes
-       // Commande.setIncr(Integer.parseInt(racine.getChild("incr").getText()));
-        
-        //On créer une liste des Element Jdom de type commande
-        List commandes = racine.getChildren("commande");
-        
-        //On la parcourt afin de recréer nos objets
-        Iterator cmd = commandes.iterator();
-            
-        while(cmd.hasNext()){
-            Element commande = (Element)cmd.next();
-            
-            List produits = commande.getChild("produits").getChildren("produit");
-            ArrayList<Produit> listeProduits=new ArrayList<Produit>();
-            
-           Iterator prdt = commandes.iterator();
-            
-            while(prdt.hasNext()){
-                Element produit = (Element)prdt.next();
-                
-                if(boutique.rechercherProduit(produit.getChild("id").getText())!=null)
-                    listeProduits.add(boutique.rechercherProduit(produit.getChild("id").getText()));
+        if(racine!=null){
+
+            ParserXML(boutique.getId());
+
+            //On commence par mettre à jour l'incrément des commandes
+           // Commande.setIncr(Integer.parseInt(racine.getChild("incr").getText()));
+
+            //On créer une liste des Element Jdom de type commande
+            List commandes = racine.getChildren("commande");
+
+            //On la parcourt afin de recréer nos objets
+            Iterator cmd = commandes.iterator();
+
+            while(cmd.hasNext()){
+                Element commande = (Element)cmd.next();
+
+                List produits = commande.getChild("produits").getChildren("produit");
+                ArrayList<Produit> listeProduits=new ArrayList<Produit>();
+
+               Iterator prdt = commandes.iterator();
+
+                while(prdt.hasNext()){
+                    Element produit = (Element)prdt.next();
+
+                    if(boutique.rechercherProduit(produit.getChild("id").getText())!=null)
+                        listeProduits.add(boutique.rechercherProduit(produit.getChild("id").getText()));
+                }
+               boutique.ajouterCommande(new Commande(new Date(Long.parseLong(commande.getChild("date").getText())), (ArrayList<Produit>)listeProduits.clone(),Boolean.parseBoolean(commande.getChild("valide").getText())));
             }
-           boutique.ajouterCommande(new Commande(new Date(Long.parseLong(commande.getChild("date").getText())), (ArrayList<Produit>)listeProduits.clone(),Boolean.parseBoolean(commande.getChild("valide").getText())));
         }
-        
     }
     
     public static void ParserXML(String name)
@@ -139,11 +138,15 @@ public class GestionCommandes {
         File fichier=new File(dir, "commandes.xml");*/
           
          document = sxb.build("XML-Boutiques/Boutique"+name+"/commandes.xml");
+         racine = document.getRootElement();
       }
-      catch(Exception e){}
+      catch(Exception e){
+          System.out.println(e);
+          racine=null;          
+      }
 
       //On initialise un nouvel élément racine avec l'élément racine du document.
-      racine = document.getRootElement();
+
 
    }
     

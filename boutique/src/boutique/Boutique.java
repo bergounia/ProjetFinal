@@ -30,7 +30,6 @@ public class Boutique implements Cloneable{
     
     private String nom;
     private String id;
-    private static int incr;
     private int incrProduits;
     private int incrCommandes;
     private ArrayList<Produit> listeProduits=new ArrayList<Produit>();
@@ -40,28 +39,28 @@ public class Boutique implements Cloneable{
     private XMLThread threadSauvegarde;
     private int IDgen;
     private ThreadGenID genID;
+    private int portProduits;
+    private int portCommandes;
 
-    public Boutique(String nom, ArrayList<Produit> listeProduits){
-        this.incr++;
-        
+    public Boutique(String nom, ArrayList<Produit> listeProduits){        
         this.nom = nom;
         this.listeProduits = listeProduits;
-        this.id=Integer.toString(incr);
-        GestionBoutique.chargerXML(this);
-        try {        
-            this.runSauvegardeXML();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Boutique.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        GestionBoutique.chargerXML(this);      
+        this.runSauvegardeXML();
     }
 
-    public Boutique(String nom) throws InterruptedException {
-        this.incr++;
+    public Boutique(String id, String nom, int portProduits, int portCommandes){
         this.nom = nom;
-        this.id=Integer.toString(incr);
+        this.id=id;
         GestionBoutique.chargerXML(this);
         this.runSauvegardeXML();
-        this.runGenID();
+        //this.runGenID();
+        this.portCommandes=portCommandes;
+        this.portProduits=portProduits;
+        
+        this.runServeurProduits(portProduits);
+        this.runServeurCommandes(portCommandes);
+        
     }
 
     public String getNom() {
@@ -70,10 +69,6 @@ public class Boutique implements Cloneable{
 
     public String getId() {
         return id;
-    }
-    
-    public static int getIncr() {
-        return incr;
     }
 
     public ArrayList<Commande> getListeCommandes() {
@@ -87,12 +82,7 @@ public class Boutique implements Cloneable{
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
-
-    public static void setIncr(int incr) {
-        Boutique.incr = incr;
-    }
-    
+    }    
 
     public void setListeProduits(ArrayList<Produit> listeProduits) {
         this.listeProduits = listeProduits;
@@ -198,16 +188,30 @@ public class Boutique implements Cloneable{
         t.start();
     }
     
-    public void runSauvegardeXML() throws InterruptedException{
+    public void runSauvegardeXML(){
         this.threadSauvegarde=new XMLThread(this);
         Thread t = new Thread(this.threadSauvegarde);
         t.start();
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
     
     public void runGenID() throws InterruptedException{
         this.genID=new ThreadGenID(this);
         Thread t = new Thread((Runnable) this.genID);
         t.start();
-    }     
+    }    
+
+    public int getPortProduits() {
+        return portProduits;
+    }
+
+    public int getPortCommandes() {
+        return portCommandes;
+    }
+    
+    
 }
 

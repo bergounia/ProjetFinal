@@ -35,7 +35,7 @@ public class ServeurThreadCommandes extends Thread{
      //** Methode : la première méthode exécutée, elle attend les connections **
   public void run()
   {
-      System.out.println("lancement du serveur de commandes");
+      System.out.println("Lancement serveur commandes sur "+this.portEcoute+" pour "+this.boutique.getNom());
       
 	// Creation du socket
 	try {	    

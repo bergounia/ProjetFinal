@@ -29,7 +29,7 @@ import thread.ConnexionThreadCommandes;
 public class ConnexionThreadClientCommandes extends Thread{
     
     private static int port=5006;
-    private static String ipaddress="192.168.1.12";
+    private static String ipaddress="localhost";
     private static ArrayList<String> listeIdProduits=new ArrayList<String>();
 
     public ConnexionThreadClientCommandes(int port, String ipaddress) {
@@ -180,6 +180,14 @@ public class ConnexionThreadClientCommandes extends Thread{
         //ConnexionThreadClientCommandes.envoyerCommande();
         ConnexionThreadClientCommandes.validerCommande(1);
         ConnexionThreadClientCommandes.validerCommande(3);
-    }
-    
+        ConnexionThreadClientCommandes.validerCommande(4);
+        ConnexionThreadClientCommandes.validerCommande(5);
+        ConnexionThreadClientCommandes.validerCommande(6);
+        ConnexionThreadClientCommandes.validerCommande(7);
+            try {
+                ConnexionThreadClientCommandes.sleep(10);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ConnexionThreadClientCommandes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }    
 }

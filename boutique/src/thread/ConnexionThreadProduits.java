@@ -41,8 +41,8 @@ public class ConnexionThreadProduits extends Thread {
     BufferedReader input;
     PrintWriter output;
     
-    public ConnexionThreadProduits(ServerSocket socketServeur, Boutique boutique) throws IOException{
-        this.sock=socketServeur.accept();
+    public ConnexionThreadProduits(Socket s, Boutique boutique) throws IOException{
+        this.sock=s;
         this.bout=boutique;
     }
     

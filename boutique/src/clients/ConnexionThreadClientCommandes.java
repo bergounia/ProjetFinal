@@ -174,20 +174,19 @@ public class ConnexionThreadClientCommandes extends Thread{
     
     public static void main(String[]args) throws IOException{
         
+        listeIdProduits.add("1");
+        listeIdProduits.add("2");
+        listeIdProduits.add("3");
+        listeIdProduits.add("4");
        //ConnexionThreadClientCommandes.listeIdProduits.add("1");
        // ConnexionThreadClientCommandes.listeIdProduits.add("2");
         //ConnexionThreadClientCommandes.listeIdProduits.add("3");
-        //ConnexionThreadClientCommandes.envoyerCommande();
-        ConnexionThreadClientCommandes.validerCommande(1);
+        ConnexionThreadClientCommandes.envoyerCommande();
+        /**ConnexionThreadClientCommandes.validerCommande(1);
         ConnexionThreadClientCommandes.validerCommande(3);
         ConnexionThreadClientCommandes.validerCommande(4);
         ConnexionThreadClientCommandes.validerCommande(5);
         ConnexionThreadClientCommandes.validerCommande(6);
-        ConnexionThreadClientCommandes.validerCommande(7);
-            try {
-                ConnexionThreadClientCommandes.sleep(10);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(ConnexionThreadClientCommandes.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        ConnexionThreadClientCommandes.validerCommande(7);*/
         }    
 }

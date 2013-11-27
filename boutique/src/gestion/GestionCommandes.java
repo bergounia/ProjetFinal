@@ -80,6 +80,16 @@ public class GestionCommandes {
                 Element idPrdt= new Element("id");
                 produit.addContent(idPrdt);
                 idPrdt.setText(prdt.getId());
+                
+                //on ajoute l'élément id à l'élément produit
+                Element idNom= new Element("nom");
+                produit.addContent(idNom);
+                idNom.setText(prdt.getNom());
+                
+                //on ajoute l'élément id à l'élément produit
+                Element idPrix= new Element("prix");
+                produit.addContent(idPrix);
+                idPrix.setText(String.valueOf(prdt.getPrix()));
             }  
         }
         

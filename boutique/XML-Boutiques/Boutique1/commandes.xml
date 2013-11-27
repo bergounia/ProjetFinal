@@ -1,4 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <commandes>
-  <incr />
+  <commande>
+    <id>1</id>
+    <valide>false</valide>
+    <date>1385564948601</date>
+    <produits>
+      <produit>
+        <id>1</id>
+        <nom>1</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>2</id>
+        <nom>2</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>3</id>
+        <nom>3</nom>
+        <prix>10</prix>
+      </produit>
+      <produit>
+        <id>4</id>
+        <nom>4</nom>
+        <prix>10</prix>
+      </produit>
+    </produits>
+  </commande>
 </commandes>

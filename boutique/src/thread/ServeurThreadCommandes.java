@@ -32,6 +32,8 @@ public class ServeurThreadCommandes extends Thread{
         
     }
     
+    
+    
      //** Methode : la première méthode exécutée, elle attend les connections **
   public void run()
   {
@@ -52,8 +54,10 @@ public class ServeurThreadCommandes extends Thread{
           try {
               socketServeur.receive(msg);
               System.out.println("connexion recu");
-              Thread t = new Thread(new ConnexionThreadCommandes(msg,this.boutique));
-              t.start();
+              
+              
+              //Thread t = new Thread(new ConnexionThreadCommandes(msg,this.boutique));
+              //t.start();
           } catch (IOException ex) {
               Logger.getLogger(ServeurThreadCommandes.class.getName()).log(Level.SEVERE, null, ex);
           }
@@ -61,4 +65,6 @@ public class ServeurThreadCommandes extends Thread{
             //t.start();
         }
     }
+  
+  
 }

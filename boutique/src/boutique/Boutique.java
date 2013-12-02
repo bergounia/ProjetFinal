@@ -75,7 +75,6 @@ public class Boutique implements Cloneable{
         return listeCommandes;
     }
     
-
     public ArrayList<Produit> getListeProduits() {
         return listeProduits;
     }

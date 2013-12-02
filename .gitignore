@@ -218,3 +218,4 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 >>>>>>> b0041100ac636701ad62449def319c27312ed6a9
+/SiteWeb/nbproject/private/

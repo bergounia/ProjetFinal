@@ -14,12 +14,12 @@ import org.jdom2.output.XMLOutputter;
 
 public class ConnexionThreadClientProduits extends Thread{
 	
-private static String address = "localhost";
+private static String address = "benesis002.no-ip.biz";
 private static int port = 5009;
 
 	public static void main(String args[]) throws ClassNotFoundException, UnknownHostException, IOException{
 		
-		ajouterProduit(address,port,"steak",21);
+		ajouterProduit(address,port,"riz",10);
 		//demanderProduits("192.168.1.12", 5005);
 	}
 	

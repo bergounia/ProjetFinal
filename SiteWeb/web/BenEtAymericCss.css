@@ -1,0 +1,103 @@
+/* 
+    Created on : 1 déc. 2013, 10:54:58
+    Author     : Aymeric
+*/
+
+body
+{
+    margin: 0%;
+    background-color: #FBC48C;
+}
+.bandeau
+{
+    margin-top: 0%;
+    background-color: #FDA751;
+    color: white;
+    border-bottom: 4px solid white;
+    //float: left;
+    width: 100%;
+}
+
+h1
+{
+    padding-left: 2%;
+    margin-bottom: 0%;
+}
+
+h2
+{
+    padding-left: 4%;
+    margin-top: 0%;
+    font-size: 120%;
+}
+
+h3
+{
+    color: #AC4500;
+    text-decoration: underline;
+    font-size: 150%;
+}
+
+.formulaireConnexion
+{
+    margin: 0% 0.5% 0% 0%;
+    padding: 0.5%;
+    border: 5px solid #BD2D01;
+    float: right;
+    background-color: #D86E4D;
+}
+
+ul
+{
+    list-style-type: none;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-color: #AC4500;
+    float: left;
+    margin-top: 0%;
+    width: 100%;
+    background-color: #FDA751;
+    color: white;
+}
+
+li.borduredroite
+{
+    border-left: 1px solid black;
+    border-color: #AC4500;
+}
+
+li
+{
+    float: left;
+    border-right: 1px solid black;
+    border-color: #AC4500;
+    padding: 0.5%;
+    margin-top: 0%;
+}
+
+li:hover
+{
+    text-decoration: underline;
+}
+
+a
+{
+    text-decoration: none;
+    color: white;
+}
+.corpsPage
+{
+    margin: 0 2% 0 2%;
+    
+}
+
+.corps
+{
+    border: 4px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    text-align: center;
+    border-color: #AC4500;
+    background-color: #FDA751;
+}

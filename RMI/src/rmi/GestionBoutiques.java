@@ -114,4 +114,16 @@ public class GestionBoutiques extends UnicastRemoteObject implements IGestionBou
         }
         catch (java.io.IOException e){}
     }
+    
+    public ArrayList<String> getListeDesBoutiques() throws RemoteException
+    {
+        ArrayList<String> nomDesBoutiques= new ArrayList<String>();
+        
+        for(Boutique b: lBoutiques)
+        {
+            nomDesBoutiques.add(b.getNom());
+        }
+        
+        return nomDesBoutiques;
+    }
 }

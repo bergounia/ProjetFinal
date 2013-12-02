@@ -10,4 +10,19 @@
     <adresseIP>192.10.0.2</adresseIP>
     <port>4141</port>
   </boutique>
+  <boutique>
+    <nom>FNAC</nom>
+    <adresseIP>127.30.26.5</adresseIP>
+    <port>6262</port>
+  </boutique>
+  <boutique>
+    <nom>RueDuCommerce</nom>
+    <adresseIP>168.65.0.1</adresseIP>
+    <port>2121</port>
+  </boutique>
+  <boutique>
+    <nom>Ebay</nom>
+    <adresseIP>145.56.4.2</adresseIP>
+    <port>3636</port>
+  </boutique>
 </boutiques>

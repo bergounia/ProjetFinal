@@ -81,7 +81,7 @@ public class Utilisateur implements Serializable{
     
     public boolean equals(Object o)
     {
-        if(this.identifiant.equals(((Utilisateur)o).getIdentifiant()))
+        if(this.nom.equals(((Utilisateur)o).getNom()) && this.prenom.equals(((Utilisateur)o).getPrenom()))
             return true;
         else
             return false;

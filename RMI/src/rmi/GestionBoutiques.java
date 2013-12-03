@@ -70,9 +70,16 @@ public class GestionBoutiques extends UnicastRemoteObject implements IGestionBou
        LectureXML();
     }
     
-    public void ajouterBoutique(Boutique b) throws RemoteException
+    public void ajouterBoutique(String nom, String adresse, String port) throws RemoteException
     {
-        GestionBoutiques.lBoutiques.add(b);
+        int p;
+        
+        if(port != null)
+           p= Integer.valueOf(port);
+        else
+           p= 0;
+            
+        GestionBoutiques.lBoutiques.add(new Boutique(nom, adresse, p));
         GestionBoutiques.sauvegarderXML();
     }
     

@@ -73,29 +73,80 @@ public class GestionUtilisateurs extends UnicastRemoteObject implements IGestion
     }
     
     /*Pour l'appartenance à un groupe: 1 pour les administrateurs et 2 pour les utilisateurs*/
-    public void ajouterUtilisateur(Utilisateur u) throws RemoteException
+    public void ajouterUtilisateur(String nom, String prenom, String mdp, String groupe) throws RemoteException
     {
-        GestionUtilisateurs.lUtilisateurs.add(u);
+        int g;
+        
+        if(groupe != null)
+           g= Integer.valueOf(groupe);
+        else
+           g= 0;
+        
+        GestionUtilisateurs.lUtilisateurs.add(new Utilisateur(nom, prenom, mdp, g));
         GestionUtilisateurs.sauvegarderXML();
     }
     
-    public void supprimerUtilisateur(Utilisateur u) throws RemoteException
+    public void supprimerUtilisateur(String nom, String prenom) throws RemoteException
     {
-        if(GestionUtilisateurs.lUtilisateurs.contains(u))
-            GestionUtilisateurs.lUtilisateurs.remove(u);
-        else
-            System.out.println("Utilisateur inexistant !");
+        boolean b= false;
+        
+        List listeU= racine.getChildren("utilisateur");
+        Iterator i = listeU.iterator();
+        
+        while(!b && i.hasNext())
+        {
+            Element courant= (Element)i.next();
+            if(courant.getChild("nom").getText().equals(nom) && courant.getChild("prenom").getText().equals(prenom))
+            {
+                Utilisateur u= new Utilisateur(courant.getChild("nom").getText(),
+                                               courant.getChild("prenom").getText(),
+                                               courant.getChild("mdp").getText(),
+                                               Integer.valueOf(courant.getChild("groupe").getText()));
+                GestionUtilisateurs.lUtilisateurs.remove(u);
+                              
+                b= true;
+            }
+                
+        }
         
         GestionUtilisateurs.sauvegarderXML();
     }
     
-    public boolean chercherUtilisateur(Utilisateur u) throws RemoteException
+    public boolean chercherUtilisateur(String identifiant) throws RemoteException
     {
-        if(GestionUtilisateurs.lUtilisateurs.contains(u))
-            return true;
-        else
-            return false;
+        boolean b= false;
+        
+        List listeU= racine.getChildren("utilisateur");
+        Iterator i = listeU.iterator();
+        
+        while(!b && i.hasNext())
+        {
+            Element courant= (Element)i.next();
+            if(courant.getChild("id").getText().equals(identifiant))
+            {
+                b= true;
+                return true;
+            }
+        }
+        return false;
     }
+    
+    public boolean estAdmin(String identifiant) throws RemoteException
+    {
+        List listeU= racine.getChildren("utilisateur");
+        Iterator i = listeU.iterator();
+        
+        while(i.hasNext())
+        {
+            Element courant= (Element)i.next();
+            if(courant.getChild("id").getText().equals(identifiant))
+            {
+                if(courant.getChild("groupe").getText().equals("2"))
+                    return true;
+            }
+        }
+        return false;
+    }     
     
     public void afficherListeUtilisateurs() throws RemoteException
     {

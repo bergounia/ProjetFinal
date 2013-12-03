@@ -1,28 +1,77 @@
 <%-- 
     Document   : EspaceAdministrateur
-    Created on : 1 dÃ©c. 2013, 23:15:08
+    Created on : 1 déc. 2013, 23:15:08
     Author     : Aymeric
 --%>
-
-<%@page import="java.rmi.Naming"%>
-<%@page import="rmi.IGestionBoutiques"%>
-<%@page import="java.util.ArrayList"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ChezBenEtAymeric</title>
-        <link href="./BenEtAymericCss.css" rel="stylesheet" type="text/css">
-    </head>
-    <body>
-       
-        <%@ include file="./EnTete.jsp" %>
-
+    
+       <%@ include file="./EnTete.jsp" %>
        <div class="corpsPage">
            <h3>Espace administrateur</h3>
            
            <div class="corps">
+               <p>Ajouter une boutique
+                   
+               <form name="AjouterUneBoutique" methode="POST" onsubmit=
+                     <% 
+                        String nom= request.getParameter("nomNouvelleBoutique");
+                        String ip= request.getParameter("ipNouvelleBoutique");
+                        String port= request.getParameter("portNouvelleBoutique");
+                        
+                        if(nom != null && ip != null && port != null)
+                         gb.ajouterBoutique(nom, ip, port);   
+                     %> 
+               >
+                   <table class="tableau">
+                       <tr><td>Nom: <td><input type="text" name="nomNouvelleBoutique" value="" placeholder="nom de la boutique"><br>
+                       <tr><td>Adresse IP:  <td><input type="text" name="ipNouvelleBoutique" value="" placeholder="192.68.1.1"><br>
+                       <tr><td>Port:  <td><input type="text" name="portNouvelleBoutique" value="" placeholder="4632"><br>
+                   </table>
+                   
+                   <input type="Submit" name="ValiderBoutique" value="Valider">
+                   <input type="reset" name="EffacerBoutique" value="Effacer">
+               </form>
+               
+              
+           </div>
+           
+           <div class="corps">
+               <p>Utilisateurs <br>
+               
+               <form name="boutonsRadio" action="" method="GET" onsubmit=
+                     <%
+                        if(request.getParameter("chk") != null)
+                        {
+                            String nomU= request.getParameter("nomNouvelUtilisateur");
+                            String prenomU= request.getParameter("prenomNouvelUtilisateur");
+                            String mdpU= request.getParameter("mdpNouvelUtilisateur");
+                            String groupeU= request.getParameter("groupeNouvelUtilisateur");
+                            
+                            if(request.getParameter("chk").equals( "1"))
+                            {
+                                if(nomU != null && prenomU != null && mdpU != null && groupeU != null)
+                                    gu.ajouterUtilisateur(nomU, prenomU, mdpU, groupeU);
+                            }
+                            else if(request.getParameter("chk").equals( "2"))
+                            {
+                                if(nomU != null && prenomU != null)
+                                    gu.supprimerUtilisateur(nomU, prenomU);
+                            }
+                        }
+                     %>
+               >
+                   <input type="radio" name="chk" id="chk1" value="1"><label for="chk1">Ajouter</label>
+                   <input type="radio" name="chk" id="chk2" value="2"><label for="chk2">Supprimer</label>
+                   
+                   <table class="tableau">
+                       <tr><td>Nom: <td><input type="text" name="nomNouvelUtilisateur" value="" placeholder="nom utilisateur"><br>
+                       <tr><td>Prenom: <td><input type="text" name="prenomNouvelUtilisateur" value="" placeholder="prenom utilisateur"><br>
+                       <tr><td>Mot de passe:  <td><input type="password" name="mdpNouvelUtilisateur" value=""><br>
+                       <tr><td>Groupe:  <td><input type="text" name="groupeNouvelUtilisateur" value="" placeholder="1 ou 2"><br>
+                   </table>
+                   
+                   <input type="Submit" name="ValiderUtilisateur" value="Valider">
+                   <input type="reset" name="EffacerUtilisateur" value="Effacer">
+               </form>
                
            </div>
        </div>  

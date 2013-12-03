@@ -9,8 +9,9 @@ import java.rmi.RemoteException;
  */
 public interface IGestionUtilisateurs extends Remote {
     
-    public void ajouterUtilisateur(Utilisateur u) throws RemoteException;
-    public void supprimerUtilisateur(Utilisateur u) throws RemoteException;
-    public boolean chercherUtilisateur(Utilisateur u) throws RemoteException;
+    public void ajouterUtilisateur(String nom, String prenom, String mdp, String groupe) throws RemoteException;
+    public void supprimerUtilisateur(String nom, String prenom) throws RemoteException;
+    public boolean chercherUtilisateur(String identifiant) throws RemoteException;
+    public boolean estAdmin(String identifiant) throws RemoteException;
     public void afficherListeUtilisateurs() throws RemoteException;
 }

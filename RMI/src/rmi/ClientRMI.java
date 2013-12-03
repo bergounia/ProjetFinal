@@ -40,11 +40,11 @@ public class ClientRMI {
         Boutique b2= new Boutique("Cdiscount", "192.10.0.2", 4141);
         
         try {
-            //gestionUtilisateurs.ajouterUtilisateur(u1);
+            //gestionUtilisateurs.ajouterUtilisateur("BRIDE", "Aymeric", "aymeric", "1");
             //gestionUtilisateurs.ajouterUtilisateur(u2);
             
             //System.out.println(gestionUtilisateurs.chercherUtilisateur(u1));
-            //gestionUtilisateurs.supprimerUtilisateur(u2);
+            gestionUtilisateurs.supprimerUtilisateur("BRIDE", "Aymeric");
             //gestionUtilisateurs.supprimerUtilisateur(u2);
             
             //Affiche la liste des utilisateurs créés
@@ -54,7 +54,7 @@ public class ClientRMI {
             //gestionBoutiques.ajouterBoutique(b1);
             //gestionBoutiques.ajouterBoutique(b2);
             
-            gestionBoutiques.afficherListeBoutiques();
+            //gestionBoutiques.afficherListeBoutiques();
             
             
         } catch(RemoteException e) {

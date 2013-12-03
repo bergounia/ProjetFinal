@@ -25,4 +25,9 @@
     <adresseIP>145.56.4.2</adresseIP>
     <port>3636</port>
   </boutique>
+  <boutique>
+    <nom>NouvelleBoutique</nom>
+    <adresseIP>192.6.3</adresseIP>
+    <port>3564</port>
+  </boutique>
 </boutiques>

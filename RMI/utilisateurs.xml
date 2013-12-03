@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<boutiques>
-  <boutique>
-    <nom>Amazon</nom>
-    <adresseIP>192.68.1.1</adresseIP>
-    <port>3131</port>
-  </boutique>
-  <boutique>
-    <nom>Cdiscount</nom>
-    <adresseIP>192.10.0.2</adresseIP>
-    <port>4141</port>
-  </boutique>
-</boutiques>
+<utilisateurs>
+  <utilisateur>
+    <id>RabaCyri1</id>
+    <nom>Rabat</nom>
+    <prenom>Cyril</prenom>
+    <mdp>bc0dcac821b0e0110557031772c15998</mdp>
+    <groupe>2</groupe>
+  </utilisateur>
+  <utilisateur>
+    <id>KamiBenj2</id>
+    <nom>Kaminski</nom>
+    <prenom>Benjamin</prenom>
+    <mdp>1f7ff5f2dc3f0079d2fa6415ced678cc</mdp>
+    <groupe>1</groupe>
+  </utilisateur>
+  <utilisateur>
+    <id>BridAyme3</id>
+    <nom>Bride</nom>
+    <prenom>Aymeric</prenom>
+    <mdp>072b02419b7d4e6210be06ffcc5e3152</mdp>
+    <groupe>1</groupe>
+  </utilisateur>
+</utilisateurs>

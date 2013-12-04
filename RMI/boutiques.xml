@@ -3,31 +3,19 @@
   <boutique>
     <nom>Amazon</nom>
     <adresseIP>192.68.1.1</adresseIP>
-    <port>3131</port>
+    <portProduits>3131</portProduits>
+    <portCommandes>3232</portCommandes>
   </boutique>
   <boutique>
     <nom>Cdiscount</nom>
     <adresseIP>192.10.0.2</adresseIP>
-    <port>4141</port>
-  </boutique>
-  <boutique>
-    <nom>FNAC</nom>
-    <adresseIP>127.30.26.5</adresseIP>
-    <port>6262</port>
-  </boutique>
-  <boutique>
-    <nom>RueDuCommerce</nom>
-    <adresseIP>168.65.0.1</adresseIP>
-    <port>2121</port>
-  </boutique>
-  <boutique>
-    <nom>Ebay</nom>
-    <adresseIP>145.56.4.2</adresseIP>
-    <port>3636</port>
+    <portProduits>4141</portProduits>
+    <portCommandes>4242</portCommandes>
   </boutique>
   <boutique>
     <nom>NouvelleBoutique</nom>
     <adresseIP>192.6.3</adresseIP>
-    <port>3564</port>
+    <portProduits>5695</portProduits>
+    <portCommandes>1684</portCommandes>
   </boutique>
 </boutiques>

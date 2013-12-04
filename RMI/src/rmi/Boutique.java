@@ -9,20 +9,23 @@ import java.io.Serializable;
 public class Boutique implements Serializable{
     private String nom;
     private String adresseIP;
-    private int port;
+    private int portProduits;
+    private int portCommandes;
     
     public Boutique()
     {
         this.nom= "";
         this.adresseIP="";
-        this.port= 0;
+        this.portProduits= 0;
+        this.portCommandes= 0;
     }
     
-    public Boutique(String n, String adr, int p)
+    public Boutique(String n, String adr, int pP, int pC)
     {
         this.nom= n;
         this.adresseIP= adr;
-        this.port= p;
+        this.portProduits= pP;
+        this.portCommandes= pC;
     }
 
     public String getNom() {
@@ -41,18 +44,26 @@ public class Boutique implements Serializable{
         this.adresseIP = adresseIP;
     }
 
-    public int getPort() {
-        return port;
+    public int getPortProduits() {
+        return this.portProduits;
     }
 
-    public void setPort(int port) {
-        this.port = port;
+    public void setPortProduits(int port) {
+        this.portProduits = port;
+    }
+    
+    public int getPortCommandes() {
+        return this.portCommandes;
+    }
+
+    public void setPortCommandes(int port) {
+        this.portCommandes = port;
     }
     
     @Override
     public String toString()
     {
-        return "Boutique: "+ this.getNom()+" "+ this.getAdresseIP()+ " "+ this.getPort()+"\n";
+        return "Boutique: "+ this.getNom()+" "+ this.getAdresseIP()+ " "+ this.getPortProduits()+ " "+this.getPortCommandes() +"\n";
     }
 }
 

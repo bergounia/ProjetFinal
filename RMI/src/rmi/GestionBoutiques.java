@@ -45,9 +45,10 @@ public class GestionBoutiques extends UnicastRemoteObject implements IGestionBou
             Element courant= (Element)i.next();
             String nom= courant.getChild("nom").getText();
             String adresseIP= courant.getChild("adresseIP").getText();
-            int port= Integer.valueOf(courant.getChild("port").getText());
+            int portProduits= Integer.valueOf(courant.getChild("portProduits").getText());
+            int portCommandes= Integer.valueOf(courant.getChild("portCommandes").getText());
             
-            GestionBoutiques.lBoutiques.add(new Boutique(nom, adresseIP, port));
+            GestionBoutiques.lBoutiques.add(new Boutique(nom, adresseIP, portProduits, portCommandes));
         }
     }
     
@@ -70,16 +71,22 @@ public class GestionBoutiques extends UnicastRemoteObject implements IGestionBou
        LectureXML();
     }
     
-    public void ajouterBoutique(String nom, String adresse, String port) throws RemoteException
+    public void ajouterBoutique(String nom, String adresse, String portProduits, String portCommandes) throws RemoteException
     {
-        int p;
+        int pP, pC;
         
-        if(port != null)
-           p= Integer.valueOf(port);
+        if(portProduits != null && portCommandes != null)
+        {
+           pP= Integer.valueOf(portProduits);
+           pC= Integer.valueOf(portCommandes);
+        }
         else
-           p= 0;
-            
-        GestionBoutiques.lBoutiques.add(new Boutique(nom, adresse, p));
+        {
+           pP= 0;
+           pC= 0;
+        }
+        
+        GestionBoutiques.lBoutiques.add(new Boutique(nom, adresse, pP, pC));
         GestionBoutiques.sauvegarderXML();
     }
     
@@ -108,9 +115,13 @@ public class GestionBoutiques extends UnicastRemoteObject implements IGestionBou
             boutique.addContent(adresseIP);
             adresseIP.setText(b.getAdresseIP());
             
-            Element port= new Element("port");
-            boutique.addContent(port);
-            port.setText(String.valueOf(b.getPort()));
+            Element portProduits= new Element("portProduits");
+            boutique.addContent(portProduits);
+            portProduits.setText(String.valueOf(b.getPortProduits()));
+            
+            Element portCommandes= new Element("portCommandes");
+            boutique.addContent(portCommandes);
+            portCommandes.setText(String.valueOf(b.getPortCommandes()));
         }
         
         //Enregistrement dans le fichier

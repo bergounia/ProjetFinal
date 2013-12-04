@@ -15,6 +15,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ChezBenEtAymeric</title>
         <link href="./BenEtAymericCss.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" language="JavaScript">
+            function verif(formu)
+            {
+                formu.action= window.location.hostname + "?boutique="+ formu.listeDesBoutiques[formu.listeDesBoutiques.selectedIndex].value);
+            }
+            
+        </script>
     </head>
     <body>
 

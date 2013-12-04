@@ -15,16 +15,18 @@
                      <% 
                         String nom= request.getParameter("nomNouvelleBoutique");
                         String ip= request.getParameter("ipNouvelleBoutique");
-                        String port= request.getParameter("portNouvelleBoutique");
+                        String portProduits= request.getParameter("portProduitsNouvelleBoutique");
+                        String portCommandes= request.getParameter("portCommandesNouvelleBoutique");
                         
-                        if(nom != null && ip != null && port != null)
-                         gb.ajouterBoutique(nom, ip, port);   
+                        if(nom != null && ip != null && portProduits != null)
+                         gb.ajouterBoutique(nom, ip, portProduits, portCommandes);   
                      %> 
                >
                    <table class="tableau">
                        <tr><td>Nom: <td><input type="text" name="nomNouvelleBoutique" value="" placeholder="nom de la boutique"><br>
                        <tr><td>Adresse IP:  <td><input type="text" name="ipNouvelleBoutique" value="" placeholder="192.68.1.1"><br>
-                       <tr><td>Port:  <td><input type="text" name="portNouvelleBoutique" value="" placeholder="4632"><br>
+                       <tr><td>Port produits:  <td><input type="text" name="portProduitsNouvelleBoutique" value="" placeholder="4632"><br>
+                       <tr><td>Port commandes:  <td><input type="text" name="portCommandesNouvelleBoutique" value="" placeholder="3698"><br>
                    </table>
                    
                    <input type="Submit" name="ValiderBoutique" value="Valider">

@@ -19,8 +19,8 @@ public class ClientRMI {
  
 	// Recuperation de la personne distante
 	try {
-	    gestionUtilisateurs = (IGestionUtilisateurs)Naming.lookup("rmi://localhost/GestionUtilisateurs");
-            gestionBoutiques = (IGestionBoutiques)Naming.lookup("rmi://localhost/GestionBoutiques");
+	    gestionUtilisateurs = (IGestionUtilisateurs)Naming.lookup("rmi://192.168.1.53/GestionUtilisateurs");
+            gestionBoutiques = (IGestionBoutiques)Naming.lookup("rmi://192.168.1.53/GestionBoutiques");
             //gestionBoutiques = (IGestionBoutiques)Naming.lookup("rmi://localhost/GestionBoutiques");
 	} catch(NotBoundException e) {
 	    System.err.println("Pas possible d'acceder à l'objet distant : " + e);

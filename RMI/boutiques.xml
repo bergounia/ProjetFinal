@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <boutiques>
   <boutique>
-    <nom>Amazon</nom>
-    <adresseIP>192.68.1.1</adresseIP>
-    <portProduits>3131</portProduits>
-    <portCommandes>3232</portCommandes>
+    <nom>Carrefour</nom>
+	<adresseIP>192.168.1.51</adresseIP>
+    <portProduits>5005</portProduits>
+    <portCommandes>5006</portCommandes>
   </boutique>
-  <boutique>
-    <nom>Cdiscount</nom>
-    <adresseIP>192.10.0.2</adresseIP>
-    <portProduits>4141</portProduits>
-    <portCommandes>4242</portCommandes>
+    <boutique>
+    <nom>Leclerc</nom>
+	<adresseIP>192.168.1.51</adresseIP>
+    <portProduits>5007</portProduits>
+    <portCommandes>5008</portCommandes>
   </boutique>
-  <boutique>
-    <nom>NouvelleBoutique</nom>
-    <adresseIP>192.6.3</adresseIP>
-    <portProduits>5695</portProduits>
-    <portCommandes>1684</portCommandes>
+    <boutique>
+    <nom>Cora</nom>
+	<adresseIP>192.168.1.51</adresseIP>
+    <portProduits>5009</portProduits>
+    <portCommandes>5010</portCommandes>
   </boutique>
 </boutiques>
+

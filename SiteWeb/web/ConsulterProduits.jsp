@@ -4,29 +4,60 @@
     Author     : Aymeric
 --%>
        
-        <%@ include file="./EnTete.jsp" %>
+<%@page import="java.util.Iterator"%>
+<%@page import="java.util.List"%>
+<%@page import="connexions.ConnexionThreadClientProduits"%>
+<%@page import="org.jdom2.Element"%>
+<%@page import="org.jdom2.Element"%>
+<%@ include file="./EnTete.jsp" %>
         
        
        <div class="corpsPage">
            <h3>Consulter les produits</h3>
             <p>Choississez une boutique:<br>
-               <form name="formu" action="" onchange="return verif(this)">
+               <form name="formu" action="">
                <select name="listeDesBoutiques">
-                    <option value="selectionner" selected>Boutiques...
                     <%
+                        String nomBoutique= "Carrefour";
+                     
+                        if(request.getParameter("listeDesBoutiques") != null)
+                            nomBoutique= request.getParameter("listeDesBoutiques");
+                            
                         ArrayList<String> listeDesBoutiques= gb.getListeDesBoutiques();
 
                         for(String s: listeDesBoutiques)
                         {
-                            out.print("<option value='"+s+"'>"+s);
+                            if(s.equals(nomBoutique))
+                                out.print("<option value='"+s+"' selected>"+s);
+                            else
+                                out.print("<option value='"+s+"'>"+s);
                         }
                     %>
                 </select>
                 <input type="submit" name="validerB" value="Valider">
                 </form>
             <div class="corps">
-                <table>
+                <% 
+                     out.print("<h3>"+nomBoutique +"</h3>");
+                %>
+                <table class="tableau">                  
+ 
                     <tr><td>Id <td>Nom <td>Prix <td>Commander
+                     <%
+                     Element message = ConnexionThreadClientProduits.demanderProduits(nomBoutique).getRootElement();
+                     
+                     List produits = message.getChildren("produit");
+                     
+                     Iterator pro = produits.iterator();
+                     
+                     while(pro.hasNext()){
+                         Element crt = (Element) pro.next();
+                         
+                         out.print("<tr><td>"+crt.getChild("id").getText()+"<td>"+crt.getChild("nom").getText()+"<td>"+crt.getChild("prix").getText() + "<td>");
+                     }
+
+                           
+                      %>
                 </table>
             </div>
         </div>

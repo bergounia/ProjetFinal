@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<boutiques>
+  <boutique>
+    <nom>Amazon</nom>
+    <adresseIP>localhost</adresseIP>
+    <portProduits>3131</portProduits>
+    <portCommandes>3232</portCommandes>
+  </boutique>
+  <boutique>
+    <nom>Cdiscount</nom>
+    <adresseIP>localhost</adresseIP>
+    <portProduits>4141</portProduits>
+    <portCommandes>4242</portCommandes>
+  </boutique>
+  <boutique>
+    <nom>NouvelleBoutique</nom>
+    <adresseIP>localhost</adresseIP>
+    <portProduits>5695</portProduits>
+    <portCommandes>1684</portCommandes>
+  </boutique>
+</boutiques>

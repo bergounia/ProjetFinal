@@ -144,4 +144,31 @@ public class GestionBoutiques extends UnicastRemoteObject implements IGestionBou
         
         return nomDesBoutiques;
     }
+    
+    public String getPortProduitsBoutique(String nom) throws RemoteException{
+        
+        for(Boutique b:this.lBoutiques){
+            if(b.getNom().equals(nom))
+                return String.valueOf(b.getPortProduits());
+        }
+        return null;
+    }
+    
+    public String getPortCommandesBoutique(String nom) throws RemoteException{
+        
+        for(Boutique b:this.lBoutiques){
+            if(b.getNom().equals(nom))
+                return String.valueOf(b.getPortCommandes());
+        }   
+        return null;
+    }
+    
+    public String getPortIPBoutique(String nom) throws RemoteException{
+        
+        for(Boutique b:this.lBoutiques){
+            if(b.getNom().equals(nom))
+                return b.getAdresseIP();
+        }   
+        return null;
+    }
 }

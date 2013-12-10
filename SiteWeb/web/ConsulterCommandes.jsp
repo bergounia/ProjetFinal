@@ -4,7 +4,11 @@
     Author     : Aymeric
 --%>
 
-         <%@page import="org.jdom2.Element"%>
+<%@page import="connexions.ConnexionThreadClientCommandes"%>
+<%@page import="connexions.ConnexionThreadClientProduits"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.Iterator"%>
+<%@page import="org.jdom2.Element"%>
 <%@ include file="./EnTete.jsp" %>
          
          <div class="corpsPage">
@@ -35,22 +39,22 @@
                     %>
                     
                     <table class="tableau">
-                        <tr><td>Id <td>Date <td>Status
-                                                     <%
-                     Element message = ConnexionThreadClientCommandes.demanderProduits(nomBoutique).getRootElement();
-                     
-                     List produits = message.getChildren("produit");
-                     
-                     Iterator pro = produits.iterator();
-                     
-                     while(pro.hasNext()){
-                         Element crt = (Element) pro.next();
-                         
-                         out.print("<tr><td>"+crt.getChild("id").getText()+"<td>"+crt.getChild("nom").getText()+"<td>"+crt.getChild("prix").getText() + "<td>");
-                     }
+                        <tr><td>Id <td>Date <td>Status <td>Valider
+                     <%
+                            /*Element message = ConnexionThreadClientCommandes.recevoirCommande(nomBoutique).getRootElement();
 
+                            List produits = message.getChildren("produit");
+
+                            Iterator pro = produits.iterator();
+
+                            while(pro.hasNext()){
+                                Element crt = (Element) pro.next();
+
+                                out.print("<tr><td>"+crt.getChild("id").getText()+"<td>"+crt.getChild("date").getText()+"<td>"+crt.getChild("status").getText());
+                            }
+*/
                            
-                      %>
+                     %>
                     </table>
                 </div>
          </div>   

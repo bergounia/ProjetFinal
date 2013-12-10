@@ -2,19 +2,19 @@
 <boutiques>
   <boutique>
     <nom>Carrefour</nom>
-	<adresseIP>192.168.1.51</adresseIP>
+	<adresseIP>192.168.1.12</adresseIP>
     <portProduits>5005</portProduits>
     <portCommandes>5006</portCommandes>
   </boutique>
     <boutique>
     <nom>Leclerc</nom>
-	<adresseIP>192.168.1.51</adresseIP>
+	<adresseIP>192.168.1.12</adresseIP>
     <portProduits>5007</portProduits>
     <portCommandes>5008</portCommandes>
   </boutique>
     <boutique>
     <nom>Cora</nom>
-	<adresseIP>192.168.1.51</adresseIP>
+	<adresseIP>192.168.1.12</adresseIP>
     <portProduits>5009</portProduits>
     <portCommandes>5010</portCommandes>
   </boutique>

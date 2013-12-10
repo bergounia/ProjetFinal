@@ -4,6 +4,7 @@
     Author     : Aymeric
 --%>
        
+<%@page import="java.net.URLEncoder"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="connexions.ConnexionThreadClientProduits"%>
@@ -53,7 +54,7 @@
                      while(pro.hasNext()){
                          Element crt = (Element) pro.next();
                          
-                         out.print("<tr><td>"+crt.getChild("id").getText()+"<td>"+crt.getChild("nom").getText()+"<td>"+crt.getChild("prix").getText() + "<td>");
+                         out.println("<tr><td>"+crt.getChild("id").getText()+"<td>"+crt.getChild("nom").getText()+"<td>"+crt.getChild("prix").getText() + "<td><a href= SessionServlet?id="+ crt.getChild("id").getText() + "&nom="+crt.getChild("nom").getText()+ "&prix="+crt.getChild("prix").getText()+ "&boutique="+ nomBoutique+"><img src='panier.png' width= '25'/></a>");  
                      }
 
                            

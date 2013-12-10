@@ -15,12 +15,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>ChezBenEtAymeric</title>
         <link href="./BenEtAymericCss.css" rel="stylesheet" type="text/css">
-       <!-- <script type="text/javascript" language="JavaScript">
-            function verif(formu)
-            {
-                formu.action= window.location.hostname + "?boutique="+ formu.listeDesBoutiques[formu.listeDesBoutiques.selectedIndex].value);
-            }
-            
+        <!-- <script type="text/javascript" language="JavaScript">
         </script> -->
     </head>
     <body>
@@ -43,23 +38,40 @@
     <li class="borduredroite"><a href="./ConsulterProduits.jsp">Consulter les produits</a>
     <li><a href="./ConsulterCommandes.jsp">Consulter les commandes</a>
     <% 
+    int i=0;
+     Cookie cookieId= null;
+     Cookie[] tabCook = request.getCookies();
+     
+     while(i<tabCook.length)
+     {
+         if(tabCook[i].getName().equals("id"))
+         {
+             cookieId = new Cookie("cookieId", tabCook[i].getValue());
+             i= tabCook.length;
+         }   
+         else
+             i++;
+     }
+     
         String espaceAdmin =(String) session.getAttribute("identifiant");
-        if(gu.estAdmin(espaceAdmin)) 
+        if(cookieId!= null && gu.estAdmin(espaceAdmin)) 
             out.print(" <li><a href='./EspaceAdministrateur.jsp'>Espace administrateur</a>");
     %>
     <li><a href="./Panier.jsp">Panier</a>
 </ul>
 <% 
-    if (session.getAttribute("identifiant") == null && session.getAttribute("motDePasse") == null) 
-        out.print("<p class='connexion'>Vous n'êtes pas connecté");
-    else
+    //if (session.getAttribute("identifiant") == null && session.getAttribute("motDePasse") == null)
+    if(cookieId !=null && cookieId.getValue() != null)
         out.print("<div class='connexion'>Bonjour "+
-                    session.getAttribute("identifiant") + 
+                    cookieId.getValue() + 
                     " <form name='FormuDeconnexion' action= 'DeconnexionServlet' method='POST'>"
                 + "<input class='boutonDeconnexion' type='submit' name='deco' value='Déconnexion'>"
                 + "</form></div>"
 
                 
         );
+        
+    else
+        out.print("<p class='connexion'>Vous n'êtes pas connecté");
 %>
 

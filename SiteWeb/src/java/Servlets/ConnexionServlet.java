@@ -90,11 +90,11 @@ public class ConnexionServlet extends HttpServlet {
 
             HttpSession session = request.getSession();
             session.setAttribute("identifiant", identifiant);
-
+            
             Cookie cookie = new Cookie("id", request.getParameter("identifiant"));
             cookie.setMaxAge(60*60);
-            response.addCookie(cookie);   
-            getServletContext().getRequestDispatcher("/ConsulterProduits.jsp").forward(request, response);   
+            response.addCookie(cookie);
+            response.sendRedirect("ConsulterProduits.jsp");
         }
         else
             response.sendRedirect("ConsulterProduits.jsp");

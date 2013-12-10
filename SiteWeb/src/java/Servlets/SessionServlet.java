@@ -8,9 +8,9 @@ package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,8 +20,9 @@ import javax.servlet.http.HttpSession;
  *
  * @author Aymeric
  */
-@WebServlet(name = "DeconnexionServlet", urlPatterns = {"/DeconnexionServlet"})
-public class DeconnexionServlet extends HttpServlet {
+@WebServlet(name = "SessionServlet", urlPatterns = {"/SessionServlet"})
+public class SessionServlet extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,7 +32,11 @@ public class DeconnexionServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    
+    private ArrayList<ArrayList<String>> listeProduits= new ArrayList<ArrayList<String>>();
+            
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
     }
 
@@ -45,9 +50,31 @@ public class DeconnexionServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processRequest(request, response);
-        //getServletContext().getRequestDispatcher("D:\\Documents\\GitHub\\ProjetFinal\\SiteWeb\\web\\ConsulterProduits.jsp").forward(request, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+         String identifiant = (String) request.getSession().getAttribute("identifiant");
+         if (identifiant != null) {
+            String idProduit= request.getParameter("id");
+            String nomProduit= request.getParameter("nom");
+            String prix= request.getParameter("prix");
+            String nomBoutique= request.getParameter("boutique");
+            
+            ArrayList<String> caracProduit= new ArrayList<String>(); 
+            
+            caracProduit.add(idProduit);
+            caracProduit.add(nomProduit);
+            caracProduit.add(prix);
+            caracProduit.add(nomBoutique);
+            
+            this.listeProduits.add(caracProduit);
+            
+            request.getSession().setAttribute("listeProduits", this.listeProduits);
+            response.sendRedirect("ConsulterProduits.jsp?listeDesBoutiques="+nomBoutique+ "&validerB=Valider");
+         }
+         else
+         {
+             System.out.println("le produit ne peut etre ajouté");
+             response.sendRedirect("ErreurServlet.jsp");
+         }
     }
 
     /**
@@ -59,26 +86,9 @@ public class DeconnexionServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        Cookie[] cookies = request.getCookies();
-        if(cookies != null)
-        {
-            for(Cookie c : cookies){
-                if(c.getName().equals("id"))
-                {
-                    c.setMaxAge(0);
-                    response.addCookie(c);
-                    c.setValue(null);
-                    break;
-                }
-            }
-        }
-        
-        HttpSession session=request.getSession();
-        session.removeAttribute("identifiant");
-        session.invalidate();
-        getServletContext().getRequestDispatcher("/ConsulterProduits.jsp").forward(request, response);
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     /**

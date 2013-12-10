@@ -28,11 +28,11 @@ import rmi.IGestionBoutiques;
  * @author Benjamin
  */
 public class ConnexionThreadClientCommandes extends Thread {
-    
+
     private static IGestionBoutiques gbu;
-    
+
     public static org.jdom2.Document recevoirCommande(String nom) throws IOException {
-        org.jdom2.Document res=null;
+        org.jdom2.Document res = null;
         try {
             gbu = (IGestionBoutiques) Naming.lookup("rmi://localhost/GestionBoutiques");
         } catch (NotBoundException ex) {
@@ -42,15 +42,15 @@ public class ConnexionThreadClientCommandes extends Thread {
         } catch (RemoteException ex) {
             Logger.getLogger(ConnexionThreadClientCommandes.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         String port = gbu.getPortCommandesBoutique(nom);
         String ip = gbu.getPortIPBoutique(nom);
-        
+
         Element racine = new Element("connexion");
         org.jdom2.Document doc = new Document(racine);
 
         racine.setAttribute("action", "recevoirCommande");
-        
+
         //envoie XML
         XMLOutputter sortie = new XMLOutputter(Format.getCompactFormat());
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -86,14 +86,14 @@ public class ConnexionThreadClientCommandes extends Thread {
             System.err.println("Erreur lors de l'envoi du message");
             System.exit(-1);
         }
-        
+
         //reception de la réponse
         socket.receive(msg);
         String texte = new String(msg.getData(), 0, msg.getLength());
-              ByteArrayInputStream bais = new ByteArrayInputStream(texte.getBytes());
-                SAXBuilder sxb = new SAXBuilder();
+        ByteArrayInputStream bais = new ByteArrayInputStream(texte.getBytes());
+        SAXBuilder sxb = new SAXBuilder();
         try {
-            res=sxb.build(bais);
+            res = sxb.build(bais);
         } catch (JDOMException ex) {
             Logger.getLogger(ConnexionThreadClientCommandes.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -108,11 +108,21 @@ public class ConnexionThreadClientCommandes extends Thread {
         return res;
     }
 
-    public static void envoyerCommande(String nom, ArrayList<String> listeIdProduits) throws IOException {
+    public static void envoyerCommande(String nomB,String nomC, ArrayList<String> listeIdProduits) throws IOException {
 
-        String port = gbu.getPortCommandesBoutique(nom);
-        String ip = gbu.getPortIPBoutique(nom);
-        
+        try {
+            gbu = (IGestionBoutiques) Naming.lookup("rmi://localhost/GestionBoutiques");
+        } catch (NotBoundException ex) {
+            Logger.getLogger(ConnexionThreadClientCommandes.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(ConnexionThreadClientCommandes.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (RemoteException ex) {
+            Logger.getLogger(ConnexionThreadClientCommandes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        String port = gbu.getPortCommandesBoutique(nomB);
+        String ip = gbu.getPortIPBoutique(nomB);
+
         Element racine = new Element("connexion");
         org.jdom2.Document doc = new Document(racine);
 
@@ -120,6 +130,10 @@ public class ConnexionThreadClientCommandes extends Thread {
 
         Element commande = new Element("commande");
         racine.addContent(commande);
+        
+        Element idCli = new Element("idCli");
+        commande.addContent(idCli);
+        idCli.setText(nomC);
 
         Element date = new Element("date");
         commande.addContent(date);
@@ -181,7 +195,7 @@ public class ConnexionThreadClientCommandes extends Thread {
     }
 
     public static void validerCommande(String nom, int i) throws RemoteException {
-        
+
         String port = gbu.getPortCommandesBoutique(nom);
         String ip = gbu.getPortIPBoutique(nom);
 
@@ -242,9 +256,20 @@ public class ConnexionThreadClientCommandes extends Thread {
             System.exit(-1);
         }
     }
+    
+    static void affiche(org.jdom2.Document document) {
+        try {
+            //On utilise ici un affichage classique avec getPrettyFormat()
+            XMLOutputter sortie = new XMLOutputter(Format.getPrettyFormat());
+            sortie.output(document, System.out);
+        } catch (java.io.IOException e) {
+        }
+    }
 
     public static void main(String[] args) throws IOException {
-        
+
+
+        //ConnexionThreadClientCommandes.envoyerCommande("Carrefour", produits);
         ConnexionThreadClientCommandes.recevoirCommande("Carrefour");
 
     }

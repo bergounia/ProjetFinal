@@ -21,20 +21,24 @@
                     {
                  %>
                 <table class="tableau">
-                    <tr><td>Id <td>Nom <td>Prix <td>Boutique
+                    <tr><td>Id <td>Nom <td>Prix <td>Boutique <td>Retirer
                 <%
  
                            listeDesProduits= (ArrayList<ArrayList<String>>) session.getAttribute("listeProduits");
 
                            for(ArrayList<String> al : listeDesProduits)
                            {
-                               out.print("<tr><td>"+al.get(0)+ "<td>"+al.get(1)+"<td>"+al.get(2)+"<td>"+al.get(3));
+                               out.print("<tr><td>"+al.get(0)+ "<td>"+al.get(1)+"<td>"+al.get(2)+"<td>"+al.get(3)+"<td><a><img src='poubelle.png' width= '20'/></a>");
                            }
                  %>
                 </table>
                 <form name="validerCommande" method="POST" action="Commandes">
                     <input type="hidden" name="champCache" value="envoyerCommande">
                     <input type="Submit" name="valider" value="Valider la commande">
+                </form>
+                <form name="viderPanier" method="POST" action="ViderPanier">
+                     <input type="hidden" name="champCache" value="viderPanier">
+                     <input type="Submit" name="viderPanier" value="Vider le panier">
                 </form>
                 <%
                     }

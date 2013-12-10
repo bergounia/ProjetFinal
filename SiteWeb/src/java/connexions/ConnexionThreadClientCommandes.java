@@ -86,10 +86,14 @@ public class ConnexionThreadClientCommandes extends Thread {
             System.err.println("Erreur lors de l'envoi du message");
             System.exit(-1);
         }
+        
+        byte[] tampon2=new byte[4000];
+        DatagramPacket msg2 = new DatagramPacket(tampon2, tampon2.length);
 
         //reception de la réponse
-        socket.receive(msg);
-        String texte = new String(msg.getData(), 0, msg.getLength());
+        socket.receive(msg2);
+        String texte = new String(msg2.getData(), 0, msg2.getLength());
+        System.out.println(texte);
         ByteArrayInputStream bais = new ByteArrayInputStream(texte.getBytes());
         SAXBuilder sxb = new SAXBuilder();
         try {

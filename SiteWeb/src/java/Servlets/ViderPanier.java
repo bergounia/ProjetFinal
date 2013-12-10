@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package Servlets;
 
-import connexions.ConnexionThreadClientCommandes;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -19,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Aymeric
  */
-@WebServlet(name = "Commandes", urlPatterns = {"/Commandes"})
-public class Commandes extends HttpServlet {
+@WebServlet(name = "ViderPanier", urlPatterns = {"/ViderPanier"})
+public class ViderPanier extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +39,10 @@ public class Commandes extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Commandes</title>");
+            out.println("<title>Servlet ViderPanier</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Commandes at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet ViderPanier at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,7 +60,8 @@ public class Commandes extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getSession().removeAttribute("listeProduits");
+        response.sendRedirect("CommandeValidee.jsp");
     }
 
     /**
@@ -72,40 +73,12 @@ public class Commandes extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        System.out.println("validation panier");
-        System.out.println(request.getSession().getAttribute("listeProduits"));
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         
-        ArrayList<ArrayList<String>> listeDesProduits = (ArrayList<ArrayList<String>>) request.getSession().getAttribute("listeProduits");
-        
-        ArrayList<String> boutiques = new ArrayList<String>();
-        ArrayList<String> tempProduits = new ArrayList<String>();
-
-        for (ArrayList<String> al : listeDesProduits) {
-            if (!boutiques.contains(al.get(3))) {
-                boutiques.add(al.get(3));
-            }
-        }
-        
-        System.out.println(boutiques);
-
-        for (String bout : boutiques) {
-
-            tempProduits = new ArrayList<String>();
-
-            for (ArrayList<String> al : listeDesProduits) {
-                if (al.get(3).equals(bout)) {
-                    tempProduits.add(al.get(0));
-                }
-            }
-            System.out.println("liste"+tempProduits);
-            
-            ConnexionThreadClientCommandes.envoyerCommande(bout, (String) request.getSession().getAttribute("identifiant"), tempProduits);
-
-        }
-        //response.sendRedirect("Panier.jsp");
-        response.sendRedirect("ViderPanier");
+        request.getSession().removeAttribute("listeProduits");
+    
+        response.sendRedirect("Panier.jsp");
     }
 
     /**
@@ -118,11 +91,4 @@ public class Commandes extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    public boolean contenir(ArrayList<String> liste,String b){
-        for(String a:liste){
-            if(a.equals(b))
-                return true;
-        }
-        return false;
-    }
 }

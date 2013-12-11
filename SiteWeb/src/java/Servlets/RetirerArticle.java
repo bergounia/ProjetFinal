@@ -8,6 +8,7 @@ package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -57,9 +58,24 @@ public class RetirerArticle extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+        ArrayList<ArrayList<String>> listeDesProduits = (ArrayList<ArrayList<String>>) request.getSession().getAttribute("listeProduits");
+        boolean b= true;
+        int i=0;
+
+        while(b && i< listeDesProduits.size())
+        {
+            ArrayList<String> crt= listeDesProduits.get(i);
+            if(crt.get(0).equals(request.getParameter("article")))
+            {
+                b=false;
+                listeDesProduits.remove(i);
+            }
+            else
+                i++;
+        }    
+        
+        response.sendRedirect("Panier.jsp");
     }
 
     /**
@@ -73,7 +89,8 @@ public class RetirerArticle extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+       
     }
 
     /**

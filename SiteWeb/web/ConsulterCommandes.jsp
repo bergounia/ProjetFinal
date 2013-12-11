@@ -43,7 +43,7 @@
                     <table class="tableau">
                     <% 
                         if(cookieId!= null && gu.estAdmin(espaceAdmin)) 
-                            out.print("<tr><td>Id commande <td>Id client <td>Date <td>Status <td>Validation");
+                            out.print("<tr><td>Id commande <td>Id client <td>Date <td>nb Produits <td>Montant Total <td>Status <td>Validation");
                         else
                             out.print("<tr><td>Id <td>Date <td>Status");
                     
@@ -70,7 +70,7 @@
                                    dateAffiche=shortDateFormat.format(dateCMD);
                                  
                                    if(cookieId!= null && gu.estAdmin(espaceAdmin))
-                                        out.print("<tr><td>"+crt.getChildText("id")+"<td>"+crt.getChildText("idCli")+"<td>"+dateAffiche+" <td>"+ image +" <td><a href=ValiderCommande?nomBoutique="+ nomBoutique+ "&idCommande="+ crt.getChildText("id") +">Valider</a>");
+                                        out.print("<tr><td>"+crt.getChildText("id")+"<td>"+crt.getChildText("idCli")+"<td>"+dateAffiche+"<td>"+crt.getChildText("nbP")+"<td>"+crt.getChildText("montantTT")+" &#8364 <td>"+ image +" <td><a href=ValiderCommande?nomBoutique="+ nomBoutique+ "&idCommande="+ crt.getChildText("id") +">Valider</a>");
                                    else
                                        out.print("<tr><td>"+crt.getChildText("id") +"<td>"+dateAffiche+" <td>"+ image);
                             }

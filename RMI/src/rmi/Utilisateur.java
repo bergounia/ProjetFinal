@@ -33,7 +33,7 @@ public class Utilisateur implements Serializable{
         this.nom= n;
         this.prenom= p;
         this.motDePasse= encode(mdp);
-        this.identifiant= this.nom.substring(0, 4)+ this.prenom.substring(0, 4)+ this.incr;
+        this.identifiant= this.nom.substring(0, 3)+ this.prenom.substring(0, 3)+ this.incr;
         this. groupe= g;
     }
 

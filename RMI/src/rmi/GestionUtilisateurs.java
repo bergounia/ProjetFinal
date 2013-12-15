@@ -112,19 +112,17 @@ public class GestionUtilisateurs extends UnicastRemoteObject implements IGestion
         GestionUtilisateurs.sauvegarderXML();
     }
     
-    public boolean chercherUtilisateur(String identifiant) throws RemoteException
-    {
-        boolean b= false;
-        
+    public boolean chercherUtilisateur(String identifiant, String motDePasse) throws RemoteException
+    {        
         List listeU= racine.getChildren("utilisateur");
         Iterator i = listeU.iterator();
         
-        while(!b && i.hasNext())
+        while(i.hasNext())
         {
             Element courant= (Element)i.next();
-            if(courant.getChild("id").getText().equals(identifiant))
+           
+            if(courant.getChild("id").getText().equals(identifiant) && courant.getChild("mdp").getText().equals(Utilisateur.encode(motDePasse)))
             {
-                b= true;
                 return true;
             }
         }

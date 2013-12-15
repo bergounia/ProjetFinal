@@ -84,7 +84,7 @@ public class ConnexionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        
-        if(guu.chercherUtilisateur(request.getParameter("identifiant")))
+        if(guu.chercherUtilisateur(request.getParameter("identifiant"), request.getParameter("motDePasse")))
         {
             String identifiant = request.getParameter("identifiant");
 

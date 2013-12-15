@@ -4,21 +4,28 @@
     <id>RabCyr1</id>
     <nom>Rabat</nom>
     <prenom>Cyril</prenom>
-    <mdp>bc0dcac821b0e0110557031772c15998</mdp>
+    <mdp>9b22e8ac450bf8dabd90915b1b00a15c</mdp>
     <groupe>2</groupe>
   </utilisateur>
   <utilisateur>
     <id>KamBen2</id>
     <nom>Kaminski</nom>
     <prenom>Benjamin</prenom>
-    <mdp>1f7ff5f2dc3f0079d2fa6415ced678cc</mdp>
+    <mdp>5d9f71b71b207b9e665820c0dce67bdb</mdp>
     <groupe>1</groupe>
   </utilisateur>
   <utilisateur>
     <id>BriAym3</id>
     <nom>Bride</nom>
     <prenom>Aymeric</prenom>
-    <mdp>072b02419b7d4e6210be06ffcc5e3152</mdp>
+    <mdp>e9ed1105d655d45535d3b3235dc32d60</mdp>
+    <groupe>1</groupe>
+  </utilisateur>
+  <utilisateur>
+    <id>DELAnt4</id>
+    <nom>DELAPLACE</nom>
+    <prenom>Antoine</prenom>
+    <mdp>0e5091a25295e44fea9957638527301f</mdp>
     <groupe>1</groupe>
   </utilisateur>
 </utilisateurs>

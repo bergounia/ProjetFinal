@@ -19,8 +19,8 @@ public class ClientRMI {
  
 	// Recuperation de la personne distante
 	try {
-	    gestionUtilisateurs = (IGestionUtilisateurs)Naming.lookup("rmi://192.168.1.53/GestionUtilisateurs");
-            gestionBoutiques = (IGestionBoutiques)Naming.lookup("rmi://192.168.1.53/GestionBoutiques");
+	    gestionUtilisateurs = (IGestionUtilisateurs)Naming.lookup("rmi://localhost/GestionUtilisateurs");
+            gestionBoutiques = (IGestionBoutiques)Naming.lookup("rmi://localhost/GestionBoutiques");
             //gestionBoutiques = (IGestionBoutiques)Naming.lookup("rmi://localhost/GestionBoutiques");
 	} catch(NotBoundException e) {
 	    System.err.println("Pas possible d'acceder à l'objet distant : " + e);
@@ -40,7 +40,7 @@ public class ClientRMI {
         Boutique b2= new Boutique("Cdiscount", "192.10.0.2", 4141, 4242);
         
         try {
-            //gestionUtilisateurs.ajouterUtilisateur("BRIDE", "Aymeric", "aymeric", "1");
+            //gestionUtilisateurs.ajouterUtilisateur("DELAPLACE", "Antoine", "antoine", "1");
             //gestionUtilisateurs.ajouterUtilisateur(u2);
             
             //System.out.println(gestionUtilisateurs.chercherUtilisateur(u1));
@@ -51,11 +51,11 @@ public class ClientRMI {
             //gestionUtilisateurs.afficherListeUtilisateurs();
             
             
-            gestionBoutiques.ajouterBoutique("Amazon", "192.68.1.1", "3131", "3232");
-            gestionBoutiques.ajouterBoutique("Cdiscount", "192.10.0.2", "4141", "4242");
+            //gestionBoutiques.ajouterBoutique("Amazon", "192.68.1.1", "3131", "3232");
+            //gestionBoutiques.ajouterBoutique("Cdiscount", "192.10.0.2", "4141", "4242");
             
             //gestionBoutiques.afficherListeBoutiques();
-            
+            System.out.println(gestionUtilisateurs.chercherUtilisateur("BriAym3", "aymeric"));
             
         } catch(RemoteException e) {
             System.err.println("Erreur lors de l'acces aux methodes : " + e);
